@@ -133,14 +133,61 @@ h1, h2, h3 {
    -------------------- */
 .main-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Pushes logo to one side, controls to the other */
     align-items: center;
     padding: 1rem 5%;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky; /* Persistent navigation */
+    position: sticky;
     top: 0;
     z-index: 1000;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Adds space between nav links and the toggle/hamburger */
+}
+/* Adjust spacing for the navigation list itself */
+.primary-navigation ul {
+    list-style: none;
+    display: flex; 
+    padding: 0; /* Remove default padding */
+}
+/* Ensure the toggle button doesn't affect the layout too much */
+.theme-toggle {
+    /* Existing styles here... */
+    margin-left: 0; /* Remove previous margin-left */
+}
+
+/* Hide navigation and show hamburger on mobile */
+.primary-navigation {
+    display: none;
+}
+.nav-toggle {
+    display: block; 
+    /* ... existing styles ... */
+}
+
+
+/* --------------------
+   7. Media Queries (Desktop/Tablet Layouts)
+   -------------------- */
+@media (min-width: 768px) {
+    /* Tablet & Desktop Navigation */
+    .nav-toggle {
+        display: none; /* Hide hamburger icon */
+    }
+    .primary-navigation {
+        /* On desktop, primary navigation is visible and sits next to the toggle */
+        display: block; 
+    }
+    /* No change needed to .primary-navigation ul, as it's already a flex row */
+    
+    /* Ensure header controls are still aligned */
+    .header-controls {
+        gap: 0.5rem; /* Tighten up the gap on desktop */
+    }
 }
 
 .logo a {
