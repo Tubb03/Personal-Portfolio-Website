@@ -86,6 +86,15 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
+/* TYPOGRAPHY FIX: Adjust H1 spacing */
+h1 {
+    font-family: var(--font-heading);
+    color: var(--clr-primary);
+    line-height: 1.1; /* Increased line spacing */
+    letter-spacing: -0.5px; /* Subtle letter spacing reduction (common for large headers) */
+}
+
+
 /* Common Section Padding (for desktop/tablet) - UPDATED */
 .section-padding {
     padding: 4rem 8%;
@@ -214,6 +223,14 @@ h1, h2, h3 {
 .hero-content {
     max-width: 800px;
     width: 90%;
+}
+
+/* TYPOGRAPHY FIX: Adjust paragraph spacing in the Hero section */
+.hero-content p {
+    line-height: 1.7; /* Increased vertical space between lines */
+    word-spacing: 1px; /* Slight horizontal space between words */
+    margin-top: 1.5rem; /* Ensure space below the heading */
+    max-width: 650px; /* Optional: limit width slightly for better reading column */
 }
 
 /* --------------------
