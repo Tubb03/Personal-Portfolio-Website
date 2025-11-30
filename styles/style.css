@@ -8,12 +8,12 @@
 }
 
 :root {
-    /* LIGHT MODE (Default) */
-    --clr-primary: #005691;     
-    --clr-accent: #E30613;      
-    --clr-light: #f4f4f4;       
-    --clr-dark: #333;           
-    --clr-card-bg: white;       
+    /* LIGHT MODE (Default) - UPDATED FOR CLEAN, MINIMALIST STYLE */
+    --clr-primary: #0077CC;     /* Clean, professional blue (similar to Ian's) */
+    --clr-accent: #E30613;      /* Keep your red accent */
+    --clr-light: #FFFFFF;       /* Pure white background */
+    --clr-dark: #333;           /* Dark text */
+    --clr-card-bg: #FFFFFF;     /* White card background */
     
     --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-body: 'Arial', sans-serif;
@@ -36,6 +36,8 @@ body.dark-mode {
 /* Apply dark mode variables to specific elements */
 body.dark-mode .main-header {
     background-color: var(--clr-card-bg);
+    /* NEW: Remove dark mode shadow for consistent clean header */
+    box-shadow: none !important; 
 }
 body.dark-mode .logo a, 
 body.dark-mode .primary-navigation a {
@@ -43,8 +45,9 @@ body.dark-mode .primary-navigation a {
 }
 body.dark-mode .project-card,
 body.dark-mode #contact-form {
-    background-color: var(--clr-card-bg);
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    /* NEW: Ensure project cards are transparent in dark mode too */
+    background-color: transparent; 
+    box-shadow: none;
 }
 body.dark-mode .project-card:hover {
     transform: translateY(-5px);
@@ -135,7 +138,7 @@ h1 {
 }
 
 /* --------------------
-   3. Header & Navigation (Mobile-First)
+   3. Header & Navigation (Mobile-First) - REMOVED SHADOW
    -------------------- */
 .main-header {
     display: flex;
@@ -143,7 +146,7 @@ h1 {
     align-items: center;
     padding: 1rem 5%;
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: none; /* REMOVED SHADOW FOR CLEAN LOOK */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -268,37 +271,47 @@ h1 {
 
 
 /* --------------------
-   5. Projects Section
+   5. Projects Section - ALIGNED TO IAN'S STYLE
    -------------------- */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr; 
-    gap: 2rem; 
+    gap: 3rem; /* Increased gap */
     margin-top: 2rem;
+    text-align: center; /* Center project content */
 }
 
 .project-card {
-    background-color: var(--clr-card-bg);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    background-color: transparent; /* Removed card background */
+    padding: 0; /* Removed card padding */
+    border-radius: 0; /* Removed rounded corners */
+    box-shadow: none; /* Removed card shadow */
     transition: transform 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: none; /* Ensure no shadow appears on hover */
 }
 
 .project-thumbnail {
     width: 100%; 
     height: auto;
-    max-height: 200px; 
+    max-height: 250px; /* Increased height for better feature image */
     object-fit: cover; 
-    border-radius: 5px;
+    border-radius: 0; /* Removed image rounded corners */
     margin-bottom: 1rem;
     display: block;
-    border: 1px solid var(--clr-light);
+    border: none; /* Removed border */
 }
+
+/* Ensure project titles are centered and use primary color */
+.project-card h3 {
+    text-align: center;
+    color: var(--clr-primary);
+    margin-bottom: 0.5rem;
+}
+
 
 /* --------------------
    6. Footer
@@ -350,7 +363,7 @@ footer {
     /* Projects Section - Three Columns Fix */
     .projects-grid {
         grid-template-columns: 1fr 1fr 1fr; 
-        gap: 2rem; 
+        gap: 3rem; /* Keep increased gap on desktop */
     }
     
     /* --------------------
