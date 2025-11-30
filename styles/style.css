@@ -243,30 +243,50 @@ h1 {
     display: flex;
     flex-direction: column; 
     align-items: center;
-    /* Increased gap on mobile for better separation */
     gap: 3rem; 
     margin-top: 2.5rem; 
+    /* Ensures the text is wide enough on mobile/default */
+    max-width: 1000px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-title {
+    color: var(--clr-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 /* Image Frame Styling - Circular Frame - OPTIMIZED */
 .about-image-frame {
-    width: 100%;
-    /* Slightly reduced size for better flow on medium screens */
-    max-width: 220px; 
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid var(--clr-accent);
+    /* ... existing styles ... */
+    order: -1; /* Puts the image *before* the content on mobile (default) */
 }
-
-.about-image-frame .profile-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+/* Ensure the content block flows naturally */
 .about-content {
     text-align: center; 
+    order: 1; /* Puts the content after the image on mobile (default) */
+}
+
+/* Skills Tag Styling */
+.about-skills {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center tags on mobile */
+    gap: 0.75rem;
+}
+.skill-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 119, 204, 0.1); /* Light background using primary color */
+    color: var(--clr-primary);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid rgba(0, 119, 204, 0.2);
 }
 
 
@@ -339,25 +359,28 @@ footer {
         gap: 0.5rem; 
     }
     
-    /* About Me Section - Side-by-Side - OPTIMIZED */
+   /* About Me Section - Side-by-Side - OPTIMIZED */
     .about-container {
         flex-direction: row; 
         align-items: flex-start; 
-        text-align: left;
+        gap: 5rem; /* Increased gap for desktop */
     }
-    .about-image-frame {
-        flex-shrink: 0; 
-        /* INCREASED GAP FOR BREATHING ROOM */
-        margin-right: 4rem; 
-    }
+    
+    /* DESKTOP LAYOUT ORDER: Content on Left, Image on Right */
     .about-content {
         flex-grow: 1;
         text-align: left; 
+        order: -1; /* Content moves to the left side (first) */
     }
-
-    .hero-content {
-        max-width: 700px; /* Slightly tighter maximum width */
-        width: 80%; /* Takes 80% of the available space on the screen */
+    .about-image-frame {
+        flex-shrink: 0; 
+        margin-right: 0; /* No external margin needed */
+        order: 1; /* Image moves to the right side (second) */
+    }
+    
+    /* Ensure skills align left on desktop */
+    .about-skills {
+        justify-content: flex-start;
     }
 
     /* Projects Section - Three Columns Fix */
