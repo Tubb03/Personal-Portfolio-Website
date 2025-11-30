@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.querySelector('.nav-toggle');
     const primaryNav = document.querySelector('#primary-navigation');
     const navLinks = primaryNav.querySelectorAll('a');
+
     
     /* -------------------------------------
        FEATURE 1: Mobile Navigation Toggle 
@@ -62,5 +63,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => {
         sectionObserver.observe(section);
+    });
+});
+
+// Add this block after your existing 'DOMContentLoaded' listener, or inside it.
+
+/* -------------------------------------
+   FEATURE 5: Back to Top Button 
+   ------------------------------------- */
+const backToTopButton = document.getElementById('back-to-top');
+const scrollThreshold = 400; // Distance (in pixels) to scroll down before button appears
+
+// 1. Show/Hide Button based on scroll position
+window.addEventListener('scroll', () => {
+    // Check if the vertical scroll position is greater than the threshold
+    if (window.scrollY > scrollThreshold) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+
+// 2. Scroll to top when button is clicked
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0, 
+        behavior: 'smooth' // Provides the smooth animation
     });
 });

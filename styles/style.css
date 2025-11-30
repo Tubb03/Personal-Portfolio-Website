@@ -314,4 +314,37 @@ footer {
            or keep auto-fit for a more robust layout: */
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     }
+
+    /* --------------------
+   9. Back to Top Button Styling
+   -------------------- */
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--clr-accent);
+        color: var(--clr-light);
+        border: none;
+        border-radius: 50%; /* Perfect circle */
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0; /* HIDDEN by default */
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+        z-index: 1500; /* Ensure it is above most other elements */
+    }
+
+    #back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #back-to-top:hover {
+        background-color: #b80510;
+    }
 }
