@@ -7,15 +7,63 @@
     padding: 0;
 }
 
+/* --------------------
+   1. CSS Reset & Variables
+   -------------------- */
 :root {
-    /* Define a professional color palette based on Odilon's professional look (Blue/Red) */
-    --clr-primary: #005691;     /* Dark Blue for background/headers (Similar to his shirt) */
-    --clr-accent: #E30613;      /* Bright Red for buttons/accents (Similar to his tie) */
-    --clr-light: #f4f4f4;       /* Light Gray background */
-    --clr-dark: #333;           /* Dark text color */
+    /* LIGHT MODE (Default) */
+    --clr-primary: #005691;     
+    --clr-accent: #E30613;      
+    --clr-light: #f4f4f4;       
+    --clr-dark: #333;           
+    --clr-card-bg: white;       /* New variable for card backgrounds */
     
     --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-body: 'Arial', sans-serif;
+}
+
+/* DARK MODE OVERRIDES */
+body.dark-mode {
+    --clr-primary: #66CCFF;     /* Lighter Blue */
+    --clr-accent: #FF5733;      /* Vibrant Orange/Red */
+    --clr-light: #121212;       /* Very Dark Gray background */
+    --clr-dark: #E0E0E0;        /* Light Gray text */
+    --clr-card-bg: #1e1e1e;     /* Slightly lighter dark card background */
+}
+
+body.dark-mode {
+    color: var(--clr-dark);
+    background-color: var(--clr-light);
+}
+
+/* Apply dark mode variables to specific elements */
+body.dark-mode .main-header {
+    background-color: var(--clr-card-bg);
+}
+body.dark-mode .logo a, 
+body.dark-mode .primary-navigation a {
+    color: var(--clr-dark);
+}
+body.dark-mode .project-card,
+body.dark-mode #contact-form {
+    background-color: var(--clr-card-bg);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
+}
+
+/* Add basic style for the toggle button */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--clr-dark);
+    margin-left: 1rem;
+    padding: 0;
+    line-height: 1;
 }
 
 html {

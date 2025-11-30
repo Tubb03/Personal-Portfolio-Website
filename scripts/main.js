@@ -91,3 +91,40 @@ backToTopButton.addEventListener('click', () => {
         behavior: 'smooth' // Provides the smooth animation
     });
 });
+
+/* -------------------------------------
+   FEATURE 6: Light/Dark Theme Toggle & Local Storage
+   ------------------------------------- */
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+function enableDarkMode() {
+    body.classList.add('dark-mode');
+    themeToggle.textContent = '🌙'; // Moon icon
+    localStorage.setItem('theme', 'dark');
+}
+
+function disableDarkMode() {
+    body.classList.remove('dark-mode');
+    themeToggle.textContent = '☀️'; // Sun icon
+    localStorage.setItem('theme', 'light');
+}
+
+// 1. Initial Load: Check for saved preference
+const storedTheme = localStorage.getItem('theme');
+
+// Apply stored theme or default to system preference
+if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    enableDarkMode();
+} else {
+    disableDarkMode();
+}
+
+// 2. Click Handler: Toggle the theme
+themeToggle.addEventListener('click', () => {
+    if (body.classList.contains('dark-mode')) {
+        disableDarkMode();
+    } else {
+        enableDarkMode();
+    }
+});
