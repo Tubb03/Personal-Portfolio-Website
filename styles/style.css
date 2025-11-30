@@ -213,6 +213,7 @@ h1, h2, h3 {
 }
 .hero-content {
     max-width: 800px;
+    width: 90%;
 }
 
 /* --------------------
@@ -322,6 +323,11 @@ footer {
     .about-content {
         flex-grow: 1;
         text-align: left; 
+    }
+
+    .hero-content {
+        max-width: 700px; /* Slightly tighter maximum width */
+        width: 80%; /* Takes 80% of the available space on the screen */
     }
 
     /* Projects Section - Three Columns Fix */
