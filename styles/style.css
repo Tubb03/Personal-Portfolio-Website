@@ -7,9 +7,6 @@
     padding: 0;
 }
 
-/* --------------------
-   1. CSS Reset & Variables
-   -------------------- */
 :root {
     /* LIGHT MODE (Default) */
     --clr-primary: #005691;     
@@ -54,20 +51,20 @@ body.dark-mode .project-card:hover {
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
 }
 
-/* Add basic style for the toggle button */
+/* Theme Toggle Button Styling */
 .theme-toggle {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1.5rem;
     color: var(--clr-dark);
-    margin-left: 1rem;
+    margin-left: 0; 
     padding: 0;
     line-height: 1;
 }
 
 html {
-    scroll-behavior: smooth; /* Smooth scrolling for navigation jumps */
+    scroll-behavior: smooth;
     font-size: 100%;
 }
 
@@ -113,7 +110,7 @@ h1, h2, h3 {
 }
 
 .primary-button:hover, .primary-button:focus {
-    background-color: #b80510; /* Slightly darker red */
+    background-color: #b80510;
     transform: translateY(-2px);
 }
 
@@ -133,7 +130,7 @@ h1, h2, h3 {
    -------------------- */
 .main-header {
     display: flex;
-    justify-content: space-between; /* Pushes logo to one side, controls to the other */
+    justify-content: space-between; 
     align-items: center;
     padding: 1rem 5%;
     background-color: white;
@@ -143,62 +140,22 @@ h1, h2, h3 {
     z-index: 1000;
 }
 
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem; /* Adds space between nav links and the toggle/hamburger */
-}
-/* Adjust spacing for the navigation list itself */
-.primary-navigation ul {
-    list-style: none;
-    display: flex; 
-    padding: 0; /* Remove default padding */
-}
-/* Ensure the toggle button doesn't affect the layout too much */
-.theme-toggle {
-    /* Existing styles here... */
-    margin-left: 0; /* Remove previous margin-left */
-}
-
-/* Hide navigation and show hamburger on mobile */
-.primary-navigation {
-    display: none;
-}
-.nav-toggle {
-    display: block; 
-    /* ... existing styles ... */
-}
-
-
-/* --------------------
-   7. Media Queries (Desktop/Tablet Layouts)
-   -------------------- */
-@media (min-width: 768px) {
-    /* Tablet & Desktop Navigation */
-    .nav-toggle {
-        display: none; /* Hide hamburger icon */
-    }
-    .primary-navigation {
-        /* On desktop, primary navigation is visible and sits next to the toggle */
-        display: block; 
-    }
-    /* No change needed to .primary-navigation ul, as it's already a flex row */
-    
-    /* Ensure header controls are still aligned */
-    .header-controls {
-        gap: 0.5rem; /* Tighten up the gap on desktop */
-    }
-}
-
 .logo a {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--clr-dark);
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; 
+}
+
 .primary-navigation ul {
     list-style: none;
-    display: flex; /* Default: hidden on mobile, shown on desktop */
+    display: flex;
+    padding: 0;
 }
 
 .primary-navigation a {
@@ -214,19 +171,17 @@ h1, h2, h3 {
     color: var(--clr-accent);
 }
 
-/* Hide navigation on mobile initially */
+/* Mobile Navigation Toggle */
 .primary-navigation {
     display: none;
 }
 .nav-toggle {
-    /* Hamburger button styling (Visible on mobile) */
     display: block; 
     border: none;
     background: none;
     cursor: pointer;
     z-index: 2000;
 }
-/* JS will toggle this class to show the menu */
 .primary-navigation.visible {
     display: block;
     position: absolute;
@@ -244,29 +199,51 @@ h1, h2, h3 {
 
 
 /* --------------------
-   4. Hero Section (Home)
+   4. Hero Section (Home) - FINAL LAYOUT
    -------------------- */
 .hero {
     display: flex;
-    flex-direction: column; /* Mobile stack: text on top, image below */
+    flex-direction: column; 
     align-items: center;
+    justify-content: center; /* Center content vertically */
     text-align: center;
-    padding: 3rem 5%;
-    min-height: 80vh; /* Takes up most of the screen */
+    padding: 5rem 10%; /* Increased padding */
+    min-height: 90vh; /* Fills up the screen */
     gap: 2rem;
 }
-
-.hero-image {
-    width: 100%;
-    max-width: 300px;
+.hero-content {
+    max-width: 800px;
 }
 
-.profile-photo {
+/* --------------------
+   4.5. About Me Section Styling (New Layout)
+   -------------------- */
+.about-container {
+    display: flex;
+    flex-direction: column; /* Stack image on top of text on mobile */
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+/* Image Frame Styling - Circular Frame */
+.about-image-frame {
     width: 100%;
-    height: auto;
-    border-radius: 50%; /* Optional: make it circular */
+    max-width: 250px; /* Consistent size for image */
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
     border: 5px solid var(--clr-accent);
+}
+
+.about-image-frame .profile-photo {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+}
+
+.about-content {
+    text-align: center; /* Center content on mobile */
 }
 
 
@@ -275,23 +252,24 @@ h1, h2, h3 {
    -------------------- */
 .projects-grid {
     display: grid;
-    /* Forces a single column layout on small screens */
     grid-template-columns: 1fr; 
-    gap: 2rem; /* Increase gap slightly for clarity */
+    gap: 2rem; 
     margin-top: 2rem;
 }
 
 .project-card {
-    /* Ensure nothing here is floating or has a fixed width that is too large */
-    background-color: white;
+    background-color: var(--clr-card-bg);
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s;
 }
 
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
 .project-thumbnail {
-    /* Crucial rules to prevent image overflow */
     width: 100%; 
     height: auto;
     max-height: 200px; 
@@ -299,9 +277,7 @@ h1, h2, h3 {
     border-radius: 5px;
     margin-bottom: 1rem;
     display: block;
-}
-.project-card:hover {
-    transform: translateY(-5px);
+    border: 1px solid var(--clr-light);
 }
 
 /* --------------------
@@ -315,104 +291,47 @@ footer {
     font-size: 0.9rem;
 }
 
-
 /* --------------------
    7. Media Queries (Desktop/Tablet Layouts)
    -------------------- */
 @media (min-width: 768px) {
-    /* ... (rest of your media query styles) ... */
+    /* Header Controls */
+    .nav-toggle {
+        display: none;
+    }
+    .primary-navigation {
+        display: block;
+    }
+    .header-controls {
+        gap: 0.5rem; 
+    }
     
+    /* Hero Section (Home) - Already centered, no further change needed */
+
+    /* About Me Section - Side-by-Side */
+    .about-container {
+        flex-direction: row; /* Image and text side-by-side */
+        align-items: flex-start; /* Align content to the top */
+        text-align: left;
+    }
+    .about-image-frame {
+        flex-shrink: 0; 
+        margin-right: 2rem;
+    }
+    .about-content {
+        flex-grow: 1;
+        text-align: left; 
+    }
+
     /* Projects Section - Three Columns Fix */
     .projects-grid {
-        /* This explicitly forces 3 columns of equal size for your 3 projects */
         grid-template-columns: 1fr 1fr 1fr; 
-        /* Or, for more flexibility: */
-        /* grid-template-columns: repeat(3, 1fr); */
-
-        /* Ensure gap is maintained */
         gap: 2rem; 
     }
-}
     
     /* --------------------
-   4. Hero Section (Home)
-   -------------------- */
-.hero {
-    display: flex;
-    flex-direction: column; /* Mobile stack: text on top, image below */
-    align-items: center;
-    text-align: center;
-    padding: 3rem 5%;
-    min-height: 80vh; /* Takes up most of the screen */
-    gap: 2rem;
-}
-
-/* Updated styling for the image container */
-.hero-image {
-    width: 100%;
-    max-width: 280px; /* Set a maximum width for the image container */
-    aspect-ratio: 1 / 1; /* Ensures the container is perfectly square */
-    border-radius: 50%; /* Make the container itself circular */
-    overflow: hidden; /* Crucial to hide parts of the image that go outside the circle */
-    border: 5px solid var(--clr-accent); /* Adds a colored border */
-    display: flex; /* Use flex to center the image if needed, though object-fit is usually enough */
-    justify-content: center;
-    align-items: center;
-}
-
-/* Updated styling for the image itself */
-.profile-photo {
-    width: 100%; /* Make the image fill the circular container's width */
-    height: 100%; /* Make the image fill the circular container's height */
-    object-fit: cover; /* This is the key: it crops the image to cover the area without distortion */
-    /* Remove border-radius here, as the container is already rounded */
-    /* Remove border here, as the container is already rounded */
-}
-
-
-/* --------------------
-   7. Media Queries (Desktop/Tablet Layouts)
-   -------------------- */
-@media (min-width: 768px) {
-    /* ... (rest of your media query styles) ... */
-    
-    /* Hero Section - Side-by-Side */
-    .hero {
-        flex-direction: row; /* Layout content and image side-by-side */
-        text-align: left;
-        padding: 5rem 10%;
-        min-height: 90vh;
-    }
-    .hero-content {
-        flex: 1;
-        max-width: 50%;
-    }
-    .hero-image {
-        /* On larger screens, you might want a slightly different max-width */
-        max-width: 320px; /* Slightly larger on desktop, still perfectly circular */
-    }
-
-    /* Remove the duplicate .profile-photo and .hero-image rules from inside the media query,
-       as the updated base styles are generally sufficient and the max-width is handled. */
-    /* .profile-photo {
-        width: 100%;
-        height: auto;
-        border-radius: 50%;
-        border: 5px solid var(--clr-accent);
-        object-fit: cover;
-    } */
-
-    /* Projects Section - Two or Three Columns */
-    .projects-grid {
-        /* Tablet/Desktop: Three equally spaced columns (or auto-fit) */
-        /* Change minmax(300px, 1fr) to just 1fr 1fr 1fr if you only have 3 projects, 
-           or keep auto-fit for a more robust layout: */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    }
-
-    /* --------------------
-   9. Back to Top Button Styling
-   -------------------- */
+       9. Back to Top Button Styling (Moved from inside the media query)
+       -------------------- */
     #back-to-top {
         position: fixed;
         bottom: 20px;
@@ -420,7 +339,7 @@ footer {
         background-color: var(--clr-accent);
         color: var(--clr-light);
         border: none;
-        border-radius: 50%; /* Perfect circle */
+        border-radius: 50%;
         width: 50px;
         height: 50px;
         font-size: 1.5rem;
@@ -428,10 +347,10 @@ footer {
         text-align: center;
         cursor: pointer;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        opacity: 0; /* HIDDEN by default */
+        opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s, visibility 0.3s;
-        z-index: 1500; /* Ensure it is above most other elements */
+        z-index: 1500;
     }
 
     #back-to-top.show {
@@ -442,22 +361,19 @@ footer {
     #back-to-top:hover {
         background-color: #b80510;
     }
-
+    
     /* --------------------
-   10. Scroll Animation Styles
-   -------------------- */
+       10. Scroll Animation Styles (Moved from inside the media query)
+       -------------------- */
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        will-change: opacity, transform;
+    }
 
-/* 1. Initial State: Hidden and slightly offset */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    will-change: opacity, transform; /* Optimization hint for the browser */
-}
-
-/* 2. Final State: Visible and in original position */
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
