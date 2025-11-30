@@ -225,6 +225,48 @@ footer {
         flex-direction: row; /* Layout links horizontally */
     }
     
+    /* --------------------
+   4. Hero Section (Home)
+   -------------------- */
+.hero {
+    display: flex;
+    flex-direction: column; /* Mobile stack: text on top, image below */
+    align-items: center;
+    text-align: center;
+    padding: 3rem 5%;
+    min-height: 80vh; /* Takes up most of the screen */
+    gap: 2rem;
+}
+
+/* Updated styling for the image container */
+.hero-image {
+    width: 100%;
+    max-width: 280px; /* Set a maximum width for the image container */
+    aspect-ratio: 1 / 1; /* Ensures the container is perfectly square */
+    border-radius: 50%; /* Make the container itself circular */
+    overflow: hidden; /* Crucial to hide parts of the image that go outside the circle */
+    border: 5px solid var(--clr-accent); /* Adds a colored border */
+    display: flex; /* Use flex to center the image if needed, though object-fit is usually enough */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Updated styling for the image itself */
+.profile-photo {
+    width: 100%; /* Make the image fill the circular container's width */
+    height: 100%; /* Make the image fill the circular container's height */
+    object-fit: cover; /* This is the key: it crops the image to cover the area without distortion */
+    /* Remove border-radius here, as the container is already rounded */
+    /* Remove border here, as the container is already rounded */
+}
+
+
+/* --------------------
+   7. Media Queries (Desktop/Tablet Layouts)
+   -------------------- */
+@media (min-width: 768px) {
+    /* ... (rest of your media query styles) ... */
+    
     /* Hero Section - Side-by-Side */
     .hero {
         flex-direction: row; /* Layout content and image side-by-side */
@@ -237,13 +279,24 @@ footer {
         max-width: 50%;
     }
     .hero-image {
-        flex: 1;
-        max-width: 350px;
+        /* On larger screens, you might want a slightly different max-width */
+        max-width: 320px; /* Slightly larger on desktop, still perfectly circular */
     }
+
+    /* Remove the duplicate .profile-photo and .hero-image rules from inside the media query,
+       as the updated base styles are generally sufficient and the max-width is handled. */
+    /* .profile-photo {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+        border: 5px solid var(--clr-accent);
+        object-fit: cover;
+    } */
 
     /* Projects Section - Two or Three Columns */
     .projects-grid {
         /* Tablet: Two columns */
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     }
+}
 }
