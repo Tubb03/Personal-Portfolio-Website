@@ -358,15 +358,25 @@ footer {
    7. Media Queries (Desktop/Tablet Layouts)
    -------------------- */
    
-/* Centering the Contact Section */
+/* Centering and spacing the Contact Section */
 #contact {
     text-align: center;
-    /* NEW: Added spacing and max-width similar to the hero section */
     padding: 5rem 10%; 
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
+
+/* NEW: Internal Spacing for Contact Section */
+#contact h2 {
+    margin-bottom: 1.5rem; /* Space below the heading */
+}
+
+#contact p {
+    margin-bottom: 2rem; /* Space between description and button */
+    line-height: 1.7; /* Ensures readability for the description */
+}
+
 
 @media (min-width: 768px) {
     /* Header Controls */
