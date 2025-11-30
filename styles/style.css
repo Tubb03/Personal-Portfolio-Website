@@ -358,9 +358,14 @@ footer {
    7. Media Queries (Desktop/Tablet Layouts)
    -------------------- */
    
-/* NEW: Centering the Contact Section */
+/* Centering the Contact Section */
 #contact {
     text-align: center;
+    /* NEW: Added spacing and max-width similar to the hero section */
+    padding: 5rem 10%; 
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (min-width: 768px) {
