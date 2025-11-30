@@ -2,7 +2,7 @@
    1. CSS Reset & Variables
    -------------------- */
 *, *::before, *::after {
-    box-sizing: border-box; /* Essential for predictable sizing */
+    box-sizing: border-box; 
     margin: 0;
     padding: 0;
 }
@@ -13,7 +13,7 @@
     --clr-accent: #E30613;      
     --clr-light: #f4f4f4;       
     --clr-dark: #333;           
-    --clr-card-bg: white;       /* New variable for card backgrounds */
+    --clr-card-bg: white;       
     
     --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-body: 'Arial', sans-serif;
@@ -21,11 +21,11 @@
 
 /* DARK MODE OVERRIDES */
 body.dark-mode {
-    --clr-primary: #66CCFF;     /* Lighter Blue */
-    --clr-accent: #FF5733;      /* Vibrant Orange/Red */
-    --clr-light: #121212;       /* Very Dark Gray background */
-    --clr-dark: #E0E0E0;        /* Light Gray text */
-    --clr-card-bg: #1e1e1e;     /* Slightly lighter dark card background */
+    --clr-primary: #66CCFF;     
+    --clr-accent: #FF5733;      
+    --clr-light: #121212;       
+    --clr-dark: #E0E0E0;        
+    --clr-card-bg: #1e1e1e;     
 }
 
 body.dark-mode {
@@ -86,9 +86,9 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
-/* Common Section Padding (for desktop/tablet) */
+/* Common Section Padding (for desktop/tablet) - UPDATED */
 .section-padding {
-    padding: 4rem 5%;
+    padding: 4rem 8%;
 }
 
 /* --------------------
@@ -205,10 +205,10 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column; 
     align-items: center;
-    justify-content: center; /* Center content vertically */
+    justify-content: center; 
     text-align: center;
-    padding: 5rem 10%; /* Increased padding */
-    min-height: 90vh; /* Fills up the screen */
+    padding: 5rem 10%; 
+    min-height: 90vh; 
     gap: 2rem;
 }
 .hero-content {
@@ -216,20 +216,22 @@ h1, h2, h3 {
 }
 
 /* --------------------
-   4.5. About Me Section Styling (New Layout)
+   4.5. About Me Section Styling (New Layout) - OPTIMIZED
    -------------------- */
 .about-container {
     display: flex;
-    flex-direction: column; /* Stack image on top of text on mobile */
+    flex-direction: column; 
     align-items: center;
-    gap: 2.5rem;
-    margin-top: 2rem;
+    /* Increased gap on mobile for better separation */
+    gap: 3rem; 
+    margin-top: 2.5rem; 
 }
 
-/* Image Frame Styling - Circular Frame */
+/* Image Frame Styling - Circular Frame - OPTIMIZED */
 .about-image-frame {
     width: 100%;
-    max-width: 250px; /* Consistent size for image */
+    /* Slightly reduced size for better flow on medium screens */
+    max-width: 220px; 
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
@@ -243,7 +245,7 @@ h1, h2, h3 {
 }
 
 .about-content {
-    text-align: center; /* Center content on mobile */
+    text-align: center; 
 }
 
 
@@ -306,17 +308,16 @@ footer {
         gap: 0.5rem; 
     }
     
-    /* Hero Section (Home) - Already centered, no further change needed */
-
-    /* About Me Section - Side-by-Side */
+    /* About Me Section - Side-by-Side - OPTIMIZED */
     .about-container {
-        flex-direction: row; /* Image and text side-by-side */
-        align-items: flex-start; /* Align content to the top */
+        flex-direction: row; 
+        align-items: flex-start; 
         text-align: left;
     }
     .about-image-frame {
         flex-shrink: 0; 
-        margin-right: 2rem;
+        /* INCREASED GAP FOR BREATHING ROOM */
+        margin-right: 4rem; 
     }
     .about-content {
         flex-grow: 1;
@@ -330,7 +331,7 @@ footer {
     }
     
     /* --------------------
-       9. Back to Top Button Styling (Moved from inside the media query)
+       9. Back to Top Button Styling 
        -------------------- */
     #back-to-top {
         position: fixed;
@@ -363,7 +364,7 @@ footer {
     }
     
     /* --------------------
-       10. Scroll Animation Styles (Moved from inside the media query)
+       10. Scroll Animation Styles 
        -------------------- */
     .animate-on-scroll {
         opacity: 0;
