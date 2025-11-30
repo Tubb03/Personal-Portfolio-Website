@@ -8,12 +8,12 @@
 }
 
 :root {
-    /* LIGHT MODE (Default) - UPDATED FOR CLEAN, MINIMALIST STYLE */
-    --clr-primary: #0077CC;     /* Clean, professional blue (similar to Ian's) */
-    --clr-accent: #E30613;      /* Keep your red accent */
-    --clr-light: #FFFFFF;       /* Pure white background */
-    --clr-dark: #333;           /* Dark text */
-    --clr-card-bg: #FFFFFF;     /* White card background */
+    /* LIGHT MODE (Default) - REVERTED TO ORIGINAL COLORS */
+    --clr-primary: #005691;     /* Original Dark Blue */
+    --clr-accent: #E30613;      
+    --clr-light: #f4f4f4;       /* Original Off-White */
+    --clr-dark: #333;           
+    --clr-card-bg: white;       /* Original White Card */
     
     --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-body: 'Arial', sans-serif;
@@ -36,8 +36,8 @@ body.dark-mode {
 /* Apply dark mode variables to specific elements */
 body.dark-mode .main-header {
     background-color: var(--clr-card-bg);
-    /* NEW: Remove dark mode shadow for consistent clean header */
-    box-shadow: none !important; 
+    /* Retaining dark mode shadow setting if it exists, otherwise letting it fall through */
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); 
 }
 body.dark-mode .logo a, 
 body.dark-mode .primary-navigation a {
@@ -45,9 +45,8 @@ body.dark-mode .primary-navigation a {
 }
 body.dark-mode .project-card,
 body.dark-mode #contact-form {
-    /* NEW: Ensure project cards are transparent in dark mode too */
-    background-color: transparent; 
-    box-shadow: none;
+    background-color: var(--clr-card-bg); /* Original dark card background */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Original dark card shadow */
 }
 body.dark-mode .project-card:hover {
     transform: translateY(-5px);
@@ -94,7 +93,7 @@ h1 {
     font-family: var(--font-heading);
     color: var(--clr-primary);
     line-height: 1.1; /* Increased line spacing */
-    letter-spacing: -0.5px; /* Subtle letter spacing reduction (common for large headers) */
+    letter-spacing: -0.5px; 
 }
 
 
@@ -138,7 +137,7 @@ h1 {
 }
 
 /* --------------------
-   3. Header & Navigation (Mobile-First) - REMOVED SHADOW
+   3. Header & Navigation (Mobile-First) - REVERTED SHADOW
    -------------------- */
 .main-header {
     display: flex;
@@ -146,7 +145,7 @@ h1 {
     align-items: center;
     padding: 1rem 5%;
     background-color: white;
-    box-shadow: none; /* REMOVED SHADOW FOR CLEAN LOOK */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* REVERTED SHADOW */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -230,14 +229,14 @@ h1 {
 
 /* TYPOGRAPHY FIX: Adjust paragraph spacing in the Hero section */
 .hero-content p {
-    line-height: 1.7; /* Increased vertical space between lines */
-    word-spacing: 1px; /* Slight horizontal space between words */
-    margin-top: 1.5rem; /* Ensure space below the heading */
-    max-width: 650px; /* Optional: limit width slightly for better reading column */
+    line-height: 1.7; 
+    word-spacing: 1px; 
+    margin-top: 1.5rem; 
+    max-width: 650px; 
 }
 
 /* --------------------
-   4.5. About Me Section Styling (New Layout) - OPTIMIZED
+   4.5. About Me Section Styling (New Layout) - ADDED SKILLS STYLES
    -------------------- */
 .about-container {
     display: flex;
@@ -245,12 +244,12 @@ h1 {
     align-items: center;
     gap: 3rem; 
     margin-top: 2.5rem; 
-    /* Ensures the text is wide enough on mobile/default */
     max-width: 1000px; 
     margin-left: auto;
     margin-right: auto;
 }
 
+/* NEW: Style for the large sub-heading in the about section */
 .about-title {
     color: var(--clr-primary);
     font-size: 1.5rem;
@@ -260,16 +259,27 @@ h1 {
 
 /* Image Frame Styling - Circular Frame - OPTIMIZED */
 .about-image-frame {
-    /* ... existing styles ... */
-    order: -1; /* Puts the image *before* the content on mobile (default) */
-}
-/* Ensure the content block flows naturally */
-.about-content {
-    text-align: center; 
-    order: 1; /* Puts the content after the image on mobile (default) */
+    width: 100%;
+    max-width: 220px; 
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--clr-accent);
+    order: 1; /* Keep image on top on mobile */
 }
 
-/* Skills Tag Styling */
+.about-image-frame .profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content {
+    text-align: center; 
+    order: 2; /* Keep content below image on mobile */
+}
+
+/* NEW: Skills Tag Styling */
 .about-skills {
     margin-top: 2rem;
     display: flex;
@@ -280,54 +290,53 @@ h1 {
 .skill-tag {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: rgba(0, 119, 204, 0.1); /* Light background using primary color */
+    background-color: rgba(0, 86, 145, 0.1); /* Light background using primary color */
     color: var(--clr-primary);
     border-radius: 5px;
     font-size: 0.9rem;
     font-weight: 500;
     white-space: nowrap;
-    border: 1px solid rgba(0, 119, 204, 0.2);
+    border: 1px solid rgba(0, 86, 145, 0.2);
 }
 
 
 /* --------------------
-   5. Projects Section - ALIGNED TO IAN'S STYLE
+   5. Projects Section - REVERTED TO ORIGINAL STYLES
    -------------------- */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr; 
-    gap: 3rem; /* Increased gap */
+    gap: 2rem; /* Reverted gap */
     margin-top: 2rem;
-    text-align: center; /* Center project content */
+    text-align: left; /* Reverted text alignment */
 }
 
 .project-card {
-    background-color: transparent; /* Removed card background */
-    padding: 0; /* Removed card padding */
-    border-radius: 0; /* Removed rounded corners */
-    box-shadow: none; /* Removed card shadow */
+    background-color: var(--clr-card-bg); /* Reverted background color */
+    padding: 1.5rem; /* Reverted padding */
+    border-radius: 8px; /* Reverted rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Reverted shadow */
     transition: transform 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: none; /* Ensure no shadow appears on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Reverted hover shadow */
 }
 
 .project-thumbnail {
     width: 100%; 
     height: auto;
-    max-height: 250px; /* Increased height for better feature image */
+    max-height: 200px; /* Reverted height */
     object-fit: cover; 
-    border-radius: 0; /* Removed image rounded corners */
+    border-radius: 5px; /* Reverted rounded corners */
     margin-bottom: 1rem;
     display: block;
-    border: none; /* Removed border */
+    border: 1px solid var(--clr-light); /* Reverted border */
 }
 
-/* Ensure project titles are centered and use primary color */
 .project-card h3 {
-    text-align: center;
+    text-align: left; /* Reverted project title alignment */
     color: var(--clr-primary);
     margin-bottom: 0.5rem;
 }
@@ -359,23 +368,23 @@ footer {
         gap: 0.5rem; 
     }
     
-   /* About Me Section - Side-by-Side - OPTIMIZED */
+    /* About Me Section - Side-by-Side - FINAL LAYOUT */
     .about-container {
         flex-direction: row; 
         align-items: flex-start; 
-        gap: 5rem; /* Increased gap for desktop */
+        gap: 4rem; /* Reverted gap */
     }
     
-    /* DESKTOP LAYOUT ORDER: Content on Left, Image on Right */
+    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right (Original) */
     .about-content {
         flex-grow: 1;
         text-align: left; 
-        order: -1; /* Content moves to the left side (first) */
+        order: 1; /* Content remains second */
     }
     .about-image-frame {
         flex-shrink: 0; 
-        margin-right: 0; /* No external margin needed */
-        order: 1; /* Image moves to the right side (second) */
+        margin-right: 0; 
+        order: -1; /* Image moves to the left side (first) */
     }
     
     /* Ensure skills align left on desktop */
@@ -383,10 +392,15 @@ footer {
         justify-content: flex-start;
     }
 
+    .hero-content {
+        max-width: 700px; 
+        width: 80%; 
+    }
+
     /* Projects Section - Three Columns Fix */
     .projects-grid {
         grid-template-columns: 1fr 1fr 1fr; 
-        gap: 3rem; /* Keep increased gap on desktop */
+        gap: 2rem; /* Reverted gap */
     }
     
     /* --------------------
