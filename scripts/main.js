@@ -128,3 +128,34 @@ themeToggle.addEventListener('click', () => {
         enableDarkMode();
     }
 });
+
+/* -------------------------------------
+   FEATURE 7: Scroll-Triggered Animations (Intersection Observer) 
+   ------------------------------------- */
+
+const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+// Observer options: Trigger when 15% of the element is visible
+const animationObserverOptions = {
+    root: null, 
+    rootMargin: '0px',
+    threshold: 0.15 
+};
+
+const animationObserverCallback = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // If the element is visible, add the animation class
+            entry.target.classList.add('fade-in');
+            // Stop observing it once it has animated
+            observer.unobserve(entry.target);
+        }
+    });
+};
+
+const animationObserver = new IntersectionObserver(animationObserverCallback, animationObserverOptions);
+
+// Start observing all elements with the 'animate-on-scroll' class
+animatedElements.forEach(element => {
+    animationObserver.observe(element);
+});
