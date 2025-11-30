@@ -302,46 +302,69 @@ h1 {
 
 
 /* --------------------
-   5. Projects Section - REVERTED TO ORIGINAL STYLES
+   5. Projects Section - REVERTED TO ORIGINAL STYLES + ADDED TAGS
    -------------------- */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr; 
-    gap: 2rem; /* Reverted gap */
+    gap: 2rem; 
     margin-top: 2rem;
-    text-align: left; /* Reverted text alignment */
+    text-align: left; 
 }
 
 .project-card {
-    background-color: var(--clr-card-bg); /* Reverted background color */
-    padding: 1.5rem; /* Reverted padding */
-    border-radius: 8px; /* Reverted rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Reverted shadow */
+    background-color: var(--clr-card-bg); 
+    padding: 1.5rem; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
     transition: transform 0.3s;
+    /* Ensure flex items (tags) don't overflow the card */
+    display: flex; 
+    flex-direction: column;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Reverted hover shadow */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
 }
 
 .project-thumbnail {
     width: 100%; 
     height: auto;
-    max-height: 200px; /* Reverted height */
+    max-height: 200px; 
     object-fit: cover; 
-    border-radius: 5px; /* Reverted rounded corners */
+    border-radius: 5px; 
     margin-bottom: 1rem;
     display: block;
-    border: 1px solid var(--clr-light); /* Reverted border */
+    border: 1px solid var(--clr-light); 
 }
 
 .project-card h3 {
-    text-align: left; /* Reverted project title alignment */
+    text-align: left; 
     color: var(--clr-primary);
     margin-bottom: 0.5rem;
 }
 
+/* NEW: Project Tags Styling */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto; /* Pushes the tags to the bottom of the card */
+    margin-bottom: 1rem;
+}
+/* Ensure the skill tag style works inside the project card, keeping the appearance consistent */
+.project-card .skill-tag {
+    /* Uses the existing skill-tag definition from the About Me section */
+    /* Only minor adjustment for internal margin */
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+}
+
+.project-card .secondary-button {
+    margin-top: 1rem; /* Space between tags and button */
+    align-self: flex-start; /* Aligns the button to the left */
+}
 
 /* --------------------
    6. Footer
