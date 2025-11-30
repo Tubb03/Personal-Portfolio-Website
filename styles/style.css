@@ -180,13 +180,14 @@ h1, h2, h3 {
    -------------------- */
 .projects-grid {
     display: grid;
-    /* Mobile: single column */
-    grid-template-columns: 1fr; /* Ensures cards stack vertically on mobile */
-    gap: 1.5rem; /* Provides space between the stacked cards */
+    /* Forces a single column layout on small screens */
+    grid-template-columns: 1fr; 
+    gap: 2rem; /* Increase gap slightly for clarity */
     margin-top: 2rem;
 }
 
 .project-card {
+    /* Ensure nothing here is floating or has a fixed width that is too large */
     background-color: white;
     padding: 1.5rem;
     border-radius: 8px;
@@ -194,6 +195,16 @@ h1, h2, h3 {
     transition: transform 0.3s;
 }
 
+.project-thumbnail {
+    /* Crucial rules to prevent image overflow */
+    width: 100%; 
+    height: auto;
+    max-height: 200px; 
+    object-fit: cover; 
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: block;
+}
 .project-card:hover {
     transform: translateY(-5px);
 }
@@ -214,16 +225,19 @@ footer {
    7. Media Queries (Desktop/Tablet Layouts)
    -------------------- */
 @media (min-width: 768px) {
-    /* Tablet & Desktop Navigation */
-    .nav-toggle {
-        display: none; /* Hide hamburger icon on larger screens */
+    /* ... (rest of your media query styles) ... */
+    
+    /* Projects Section - Three Columns Fix */
+    .projects-grid {
+        /* This explicitly forces 3 columns of equal size for your 3 projects */
+        grid-template-columns: 1fr 1fr 1fr; 
+        /* Or, for more flexibility: */
+        /* grid-template-columns: repeat(3, 1fr); */
+
+        /* Ensure gap is maintained */
+        gap: 2rem; 
     }
-    .primary-navigation {
-        display: block; /* Show menu links */
-    }
-    .primary-navigation ul {
-        flex-direction: row; /* Layout links horizontally */
-    }
+}
     
     /* --------------------
    4. Hero Section (Home)
@@ -300,5 +314,4 @@ footer {
            or keep auto-fit for a more robust layout: */
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     }
-}
 }
