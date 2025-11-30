@@ -181,8 +181,8 @@ h1, h2, h3 {
 .projects-grid {
     display: grid;
     /* Mobile: single column */
-    grid-template-columns: 1fr; 
-    gap: 1.5rem;
+    grid-template-columns: 1fr; /* Ensures cards stack vertically on mobile */
+    gap: 1.5rem; /* Provides space between the stacked cards */
     margin-top: 2rem;
 }
 
@@ -295,8 +295,10 @@ footer {
 
     /* Projects Section - Two or Three Columns */
     .projects-grid {
-        /* Tablet: Two columns */
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        /* Tablet/Desktop: Three equally spaced columns (or auto-fit) */
+        /* Change minmax(300px, 1fr) to just 1fr 1fr 1fr if you only have 3 projects, 
+           or keep auto-fit for a more robust layout: */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     }
 }
 }
