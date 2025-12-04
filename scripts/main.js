@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add this block after your existing 'DOMContentLoaded' listener, or inside it.
 
 /* -------------------------------------
    FEATURE 5: Back to Top Button 

@@ -8,7 +8,7 @@
 }
 
 :root {
-    /* LIGHT MODE (Default) - REVERTED TO ORIGINAL COLORS */
+    /* LIGHT MODE (Default)
     --clr-primary: #005691;     /* Original Dark Blue */
     --clr-accent: #E30613;      
     --clr-light: #f4f4f4;       /* Original Off-White */
@@ -19,7 +19,7 @@
     --font-body: 'Arial', sans-serif;
 }
 
-/* DARK MODE OVERRIDES */
+/* DARK MODE */
 body.dark-mode {
     --clr-primary: #66CCFF;     
     --clr-accent: #FF5733;      
@@ -97,7 +97,7 @@ h1 {
 }
 
 
-/* Common Section Padding (for desktop/tablet) - UPDATED */
+/* Common Section Padding (for desktop/tablet) */
 .section-padding {
     padding: 4rem 8%;
 }
@@ -137,7 +137,7 @@ h1 {
 }
 
 /* --------------------
-   3. Header & Navigation (Mobile-First) - REVERTED SHADOW
+   3. Header & Navigation (Mobile-First)
    -------------------- */
 .main-header {
     display: flex;
@@ -145,7 +145,7 @@ h1 {
     align-items: center;
     padding: 1rem 5%;
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* REVERTED SHADOW */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -210,7 +210,7 @@ h1 {
 
 
 /* --------------------
-   4. Hero Section (Home) - FINAL LAYOUT
+   4. Hero Section (Home)
    -------------------- */
 .hero {
     display: flex;
@@ -237,7 +237,7 @@ h1 {
 }
 
 /* --------------------
-   4.5. About Me Section Styling (New Layout) - ADDED SKILLS STYLES
+   4.5. About Me Section Styling (New Layout)
    -------------------- */
 .about-container {
     display: flex;
@@ -250,7 +250,7 @@ h1 {
     margin-right: auto;
 }
 
-/* NEW: Style for the large sub-heading in the about section */
+/* Style for the large sub-heading in the about section */
 .about-title {
     color: var(--clr-primary);
     font-size: 1.5rem;
@@ -302,7 +302,7 @@ h1 {
 
 
 /* --------------------
-   5. Projects Section - REVERTED TO ORIGINAL STYLES + ADDED TAGS
+   5. Projects Section 
    -------------------- */
 .projects-grid {
     display: grid;
@@ -355,8 +355,6 @@ h1 {
 }
 /* Ensure the skill tag style works inside the project card, keeping the appearance consistent */
 .project-card .skill-tag {
-    /* Uses the existing skill-tag definition from the About Me section */
-    /* Only minor adjustment for internal margin */
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
 }
@@ -390,7 +388,7 @@ footer {
     margin-right: auto;
 }
 
-/* NEW: Internal Spacing for Contact Section */
+/* Internal Spacing for Contact Section */
 #contact h2 {
     margin-bottom: 1.5rem; /* Space below the heading */
 }
@@ -413,14 +411,14 @@ footer {
         gap: 0.5rem; 
     }
     
-    /* About Me Section - Side-by-Side - FINAL LAYOUT */
+    /* About Me Section - Side-by-Side */
     .about-container {
         flex-direction: row; 
         align-items: flex-start; 
         gap: 4rem; /* Reverted gap */
     }
     
-    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right (Original) */
+    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right  */
     .about-content {
         flex-grow: 1;
         text-align: left; 
@@ -445,7 +443,7 @@ footer {
     /* Projects Section - Three Columns Fix */
     .projects-grid {
         grid-template-columns: 1fr 1fr 1fr; 
-        gap: 2rem; /* Reverted gap */
+        gap: 2rem;
     }
     
     /* --------------------
