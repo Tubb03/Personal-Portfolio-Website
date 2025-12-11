@@ -1,5 +1,5 @@
 /* ----------------------------------------------------
-   FINAL PORTFOLIO STYLESHEET
+   FINAL PORTFOLIO STYLESHEET (Optimized for 4 Sections)
    ---------------------------------------------------- */
 
 /* --------------------
@@ -17,7 +17,7 @@
     --clr-accent: #E30613;      /* Red */
     
     /* Alternating Section Backgrounds (Grey/White) */
-    --clr-light: #f4f4f4;       /* COLOR 1/3/5: Off-White/Light Gray */
+    --clr-light: #f4f4f4;       /* COLOR 1/3: Off-White/Light Gray */
     --clr-white: white;         /* COLOR 2/4: Pure White */
     
     --clr-dark: #333;           
@@ -34,7 +34,7 @@ body.dark-mode {
     --clr-accent: #FF5733;      
     
     /* Dark Mode Alternating Background Colors */
-    --clr-light: #121212;       /* COLOR 1/3/5: Base Dark */
+    --clr-light: #121212;       /* COLOR 1/3: Base Dark */
     --clr-white: #1a1a1a;       /* COLOR 2/4: Slightly lighter dark for contrast */
     --clr-dark-light-end: #141414; /* Used for dark mode gradient end point */
     
@@ -44,7 +44,6 @@ body.dark-mode {
 
 body.dark-mode {
     color: var(--clr-dark);
-    /* Base background is set by the sections now */
 }
 
 /* Apply dark mode variables to specific elements */
@@ -107,7 +106,7 @@ h1 {
     color: var(--clr-primary);
     line-height: 1.1; 
     letter-spacing: -0.5px; 
-    font-weight: 900; /* Heavier weight for impact */
+    font-weight: 900; 
 }
 
 
@@ -151,7 +150,7 @@ h1 {
 }
 
 /* --------------------
-   3. Header & Navigation (Mobile-First)
+   3. Header & Navigation
    -------------------- */
 .main-header {
     display: flex;
@@ -224,7 +223,7 @@ h1 {
 
 
 /* --------------------
-   4. Hero Section (Home) - COLOR 1 + GRADIENT
+   4. Hero Section (Home) - COLOR 1 (LIGHT GRAY)
    -------------------- */
 .hero {
     display: flex;
@@ -248,7 +247,6 @@ body.dark-mode .hero {
     width: 90%;
 }
 
-/* TYPOGRAPHY FIX: Adjust paragraph spacing in the Hero section */
 .hero-content p {
     line-height: 1.7; 
     word-spacing: 1px; 
@@ -258,7 +256,7 @@ body.dark-mode .hero {
 }
 
 /* --------------------
-   4.5. About Me Section Styling (New Layout) - COLOR 2 + GRADIENT
+   4.5. About Me Section Styling - COLOR 2 (WHITE)
    -------------------- */
 .about-container {
     display: flex;
@@ -280,7 +278,6 @@ body.dark-mode #about-me {
     background-color: var(--clr-white);
 }
 
-/* NEW: Style for the large sub-heading in the about section */
 .about-title {
     color: var(--clr-primary);
     font-size: 1.5rem;
@@ -310,29 +307,11 @@ body.dark-mode #about-me {
     order: 2; 
 }
 
-/* NEW: Skills Tag Styling */
-.about-skills {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 0.75rem;
-}
-.skill-tag {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(0, 86, 145, 0.1); 
-    color: var(--clr-primary);
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    white-space: nowrap;
-    border: 1px solid rgba(0, 86, 145, 0.2);
-}
+/* NOTE: .about-skills and #skills section styling removed as requested. */
 
 
 /* --------------------
-   5. Projects Section - COLOR 3 + GRADIENT & ENHANCED SHADOWS
+   5. Projects Section - COLOR 3 (LIGHT GRAY)
    -------------------- */
 #projects {
     /* Subtle Background Gradient */
@@ -392,7 +371,7 @@ body.dark-mode .project-card:hover {
     margin-bottom: 0.5rem;
 }
 
-/* NEW: Project Tags Styling */
+/* NEW: Project Tags Styling - Replaced old .skill-tag */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -400,10 +379,16 @@ body.dark-mode .project-card:hover {
     margin-top: auto; 
     margin-bottom: 1rem;
 }
-/* Ensure the skill tag style works inside the project card, keeping the appearance consistent */
 .project-card .skill-tag {
+    display: inline-block;
     padding: 0.4rem 0.8rem;
+    background-color: rgba(0, 86, 145, 0.1); 
+    color: var(--clr-primary);
+    border-radius: 5px;
     font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid rgba(0, 86, 145, 0.2);
 }
 
 .project-card .secondary-button {
@@ -413,7 +398,7 @@ body.dark-mode .project-card:hover {
 
 
 /* --------------------
-   6. Contact Section - COLOR 4 + GRADIENT
+   6. Contact Section - COLOR 4 (WHITE)
    -------------------- */
 #contact {
     text-align: center;
@@ -438,6 +423,12 @@ body.dark-mode #contact {
 #contact p {
     margin-bottom: 2rem; 
     line-height: 1.7; 
+}
+
+/* Style for the new LinkedIn Button in Contact (same as primary button but for the link) */
+#contact .large-button {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
 }
 
 
@@ -486,10 +477,7 @@ footer {
         order: -1; 
     }
     
-    /* Ensure skills align left on desktop */
-    .about-skills {
-        justify-content: flex-start;
-    }
+    /* Ensure skills align left on desktop (Removed .about-skills alignment) */
 
     .hero-content {
         max-width: 700px; 
