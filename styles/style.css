@@ -1,10 +1,4 @@
-/* ----------------------------------------------------
-   FINAL PORTFOLIO STYLESHEET (Full-Width Contact Fix & Alternation)
-   ---------------------------------------------------- */
 
-/* --------------------
-   1. CSS Reset & Variables
-   -------------------- */
 *, *::before, *::after {
     box-sizing: border-box; 
     margin: 0;
@@ -23,7 +17,7 @@
     --clr-dark: #333;           
     --clr-card-bg: white;       
     
-    /* ENHANCEMENT 1: New Heading Font */
+    /* Heading Font */
     --font-heading: 'Montserrat', sans-serif; 
     --font-body: 'Arial', sans-serif;
 }
@@ -94,13 +88,12 @@ a {
 }
 
 h1, h2, h3 {
-    /* Uses the new 'Montserrat' font */
     font-family: var(--font-heading);
     color: var(--clr-primary);
     line-height: 1.2;
 }
 
-/* TYPOGRAPHY FIX: Adjust H1 spacing */
+/* Adjust H1 spacing */
 h1 {
     font-family: var(--font-heading);
     color: var(--clr-primary);
@@ -236,7 +229,7 @@ h1 {
     gap: 2rem;
     /* Subtle Background Gradient */
     background: linear-gradient(180deg, var(--clr-light) 0%, #fcfcfc 100%); 
-    background-color: var(--clr-light); /* Fallback */
+    background-color: var(--clr-light);
 }
 body.dark-mode .hero {
     background: linear-gradient(180deg, var(--clr-light) 0%, var(--clr-dark-light-end) 100%); 
@@ -271,7 +264,7 @@ body.dark-mode .hero {
 #about-me {
     /* Subtle Background Gradient */
     background: linear-gradient(180deg, var(--clr-white) 0%, #f8f8f8 100%);
-    background-color: var(--clr-white); /* Fallback */
+    background-color: var(--clr-white);
 }
 body.dark-mode #about-me {
     background: linear-gradient(180deg, var(--clr-white) 0%, #171717 100%);
@@ -285,7 +278,7 @@ body.dark-mode #about-me {
     font-weight: 600;
 }
 
-/* Image Frame Styling - Circular Frame - OPTIMIZED */
+/* Image Frame Styling - Circular Frame */
 .about-image-frame {
     width: 100%;
     max-width: 220px; 
@@ -314,7 +307,7 @@ body.dark-mode #about-me {
 #projects {
     /* Subtle Background Gradient */
     background: linear-gradient(180deg, var(--clr-light) 0%, #fcfcfc 100%); 
-    background-color: var(--clr-light); /* Fallback */
+    background-color: var(--clr-light);
 }
 body.dark-mode #projects {
     background: linear-gradient(180deg, var(--clr-light) 0%, var(--clr-dark-light-end) 100%);
@@ -333,7 +326,7 @@ body.dark-mode #projects {
     background-color: var(--clr-card-bg); 
     padding: 1.5rem; 
     border-radius: 8px; 
-    /* ENHANCEMENT 2: Soft initial shadow */
+    /* Soft initial shadow */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03); 
     transition: transform 0.3s, box-shadow 0.3s; 
     display: flex; 
@@ -342,7 +335,7 @@ body.dark-mode #projects {
 
 .project-card:hover {
     transform: translateY(-5px);
-    /* ENHANCEMENT 2: Stronger hover shadow */
+    /* Stronger hover shadow */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); 
 }
 body.dark-mode .project-card {
@@ -396,20 +389,19 @@ body.dark-mode .project-card:hover {
 
 
 /* --------------------
-   6. Contact Section - COLOR 4 (WHITE) - FULL WIDTH FIX
+   6. Contact Section - COLOR 4 (WHITE)
    -------------------- */
 #contact {
     text-align: center;
-    /* FULL WIDTH BACKGROUND STRETCH */
     background: linear-gradient(180deg, var(--clr-white) 0%, #f8f8f8 100%);
-    background-color: var(--clr-white); /* Fallback */
+    background-color: var(--clr-white); 
 }
 body.dark-mode #contact {
     background: linear-gradient(180deg, var(--clr-white) 0%, #171717 100%);
     background-color: var(--clr-white);
 }
 
-/* Wrapper to constrain content and center it - REQUIRES index.html CHANGE */
+/* Wrapper to constrain content and center it */
 .contact-content-wrapper {
     max-width: 800px;
     margin-left: auto;
@@ -459,14 +451,14 @@ footer {
         gap: 0.5rem; 
     }
     
-    /* About Me Section - Side-by-Side - FINAL LAYOUT */
+    /* About Me Section - Side-by-Side */
     .about-container {
         flex-direction: row; 
         align-items: flex-start; 
         gap: 4rem; 
     }
     
-    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right (Original) */
+    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right */
     .about-content {
         flex-grow: 1;
         text-align: left; 
