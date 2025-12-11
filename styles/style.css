@@ -89,7 +89,7 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
-/* TYPOGRAPHY FIX: Adjust H1 spacing */
+/* Adjust H1 spacing */
 h1 {
     font-family: var(--font-heading);
     color: var(--clr-primary);
@@ -98,7 +98,7 @@ h1 {
 }
 
 
-/* Common Section Padding (for desktop/tablet) - UPDATED */
+/* Common Section Padding (for desktop/tablet)  */
 .section-padding {
     padding: 4rem 8%;
 }
@@ -211,7 +211,7 @@ h1 {
 
 
 /* --------------------
-   4. Hero Section (Home) - FINAL LAYOUT + COLOR 1
+   4. Hero Section (Home) 
    -------------------- */
 .hero {
     display: flex;
@@ -229,7 +229,7 @@ h1 {
     width: 90%;
 }
 
-/* TYPOGRAPHY FIX: Adjust paragraph spacing in the Hero section */
+/* Adjust paragraph spacing in the Hero section */
 .hero-content p {
     line-height: 1.7; 
     word-spacing: 1px; 
@@ -255,7 +255,7 @@ h1 {
     background-color: var(--clr-white); /* COLOR 2: White */
 }
 
-/* NEW: Style for the large sub-heading in the about section */
+/* Style for the large sub-heading in the about section */
 .about-title {
     color: var(--clr-primary);
     font-size: 1.5rem;
@@ -263,7 +263,7 @@ h1 {
     font-weight: 600;
 }
 
-/* Image Frame Styling - Circular Frame - OPTIMIZED */
+/* Image Frame Styling - Circular Frame */
 .about-image-frame {
     width: 100%;
     max-width: 220px; 
@@ -352,7 +352,7 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
-/* NEW: Project Tags Styling */
+/* Project Tags Styling */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -409,7 +409,6 @@ footer {
    8. Media Queries (Desktop/Tablet Layouts)
    -------------------- */
 @media (min-width: 768px) {
-    /* ... (rest of media query styles unchanged) ... */
     
     /* Header Controls */
     .nav-toggle {
@@ -422,14 +421,14 @@ footer {
         gap: 0.5rem; 
     }
     
-    /* About Me Section - Side-by-Side - FINAL LAYOUT */
+    /* About Me Section - Side-by-Side */
     .about-container {
         flex-direction: row; 
         align-items: flex-start; 
         gap: 4rem; 
     }
     
-    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right (Original) */
+    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right */
     .about-content {
         flex-grow: 1;
         text-align: left; 
