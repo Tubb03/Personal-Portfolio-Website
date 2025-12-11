@@ -1,5 +1,5 @@
 /* ----------------------------------------------------
-   FINAL PORTFOLIO STYLESHEET (Optimized for 4 Sections)
+   FINAL PORTFOLIO STYLESHEET (Full-Width Contact Fix & Alternation)
    ---------------------------------------------------- */
 
 /* --------------------
@@ -307,8 +307,6 @@ body.dark-mode #about-me {
     order: 2; 
 }
 
-/* NOTE: .about-skills and #skills section styling removed as requested. */
-
 
 /* --------------------
    5. Projects Section - COLOR 3 (LIGHT GRAY)
@@ -371,7 +369,7 @@ body.dark-mode .project-card:hover {
     margin-bottom: 0.5rem;
 }
 
-/* NEW: Project Tags Styling - Replaced old .skill-tag */
+/* Project Tags Styling */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -398,21 +396,24 @@ body.dark-mode .project-card:hover {
 
 
 /* --------------------
-   6. Contact Section - COLOR 4 (WHITE)
+   6. Contact Section - COLOR 4 (WHITE) - FULL WIDTH FIX
    -------------------- */
 #contact {
     text-align: center;
-    padding: 5rem 10%; 
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    /* Subtle Background Gradient */
+    /* FULL WIDTH BACKGROUND STRETCH */
     background: linear-gradient(180deg, var(--clr-white) 0%, #f8f8f8 100%);
     background-color: var(--clr-white); /* Fallback */
 }
 body.dark-mode #contact {
     background: linear-gradient(180deg, var(--clr-white) 0%, #171717 100%);
     background-color: var(--clr-white);
+}
+
+/* Wrapper to constrain content and center it - REQUIRES index.html CHANGE */
+.contact-content-wrapper {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Internal Spacing for Contact Section */
@@ -425,7 +426,7 @@ body.dark-mode #contact {
     line-height: 1.7; 
 }
 
-/* Style for the new LinkedIn Button in Contact (same as primary button but for the link) */
+/* Style for the new LinkedIn Button in Contact */
 #contact .large-button {
     font-size: 1.1rem;
     padding: 1rem 2rem;
@@ -477,8 +478,6 @@ footer {
         order: -1; 
     }
     
-    /* Ensure skills align left on desktop (Removed .about-skills alignment) */
-
     .hero-content {
         max-width: 700px; 
         width: 80%; 
