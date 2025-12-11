@@ -1,3 +1,7 @@
+/* ----------------------------------------------------
+   FINAL PORTFOLIO STYLESHEET
+   ---------------------------------------------------- */
+
 /* --------------------
    1. CSS Reset & Variables
    -------------------- */
@@ -11,12 +15,16 @@
     /* LIGHT MODE (Default) */
     --clr-primary: #005691;     /* Dark Blue */
     --clr-accent: #E30613;      /* Red */
-    --clr-light: #f4f4f4;       /* Off-White/Light Gray (Section 1/3/5 background) */
-    --clr-white: white;         /* Pure White (Section 2/4 background) */
+    
+    /* Alternating Section Backgrounds (Grey/White) */
+    --clr-light: #f4f4f4;       /* COLOR 1/3/5: Off-White/Light Gray */
+    --clr-white: white;         /* COLOR 2/4: Pure White */
+    
     --clr-dark: #333;           
     --clr-card-bg: white;       
     
-    --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* ENHANCEMENT 1: New Heading Font */
+    --font-heading: 'Montserrat', sans-serif; 
     --font-body: 'Arial', sans-serif;
 }
 
@@ -24,15 +32,19 @@
 body.dark-mode {
     --clr-primary: #66CCFF;     
     --clr-accent: #FF5733;      
-    --clr-light: #121212;       /* Dark background */
-    --clr-white: #1a1a1a;       /* Slightly lighter dark for contrast */
+    
+    /* Dark Mode Alternating Background Colors */
+    --clr-light: #121212;       /* COLOR 1/3/5: Base Dark */
+    --clr-white: #1a1a1a;       /* COLOR 2/4: Slightly lighter dark for contrast */
+    --clr-dark-light-end: #141414; /* Used for dark mode gradient end point */
+    
     --clr-dark: #E0E0E0;        
     --clr-card-bg: #1e1e1e;     
 }
 
 body.dark-mode {
     color: var(--clr-dark);
-    background-color: var(--clr-light);
+    /* Base background is set by the sections now */
 }
 
 /* Apply dark mode variables to specific elements */
@@ -75,7 +87,6 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     color: var(--clr-dark);
-    background-color: var(--clr-light); /* Base background for the page */
 }
 
 a {
@@ -84,21 +95,23 @@ a {
 }
 
 h1, h2, h3 {
+    /* Uses the new 'Montserrat' font */
     font-family: var(--font-heading);
     color: var(--clr-primary);
     line-height: 1.2;
 }
 
-/* Adjust H1 spacing */
+/* TYPOGRAPHY FIX: Adjust H1 spacing */
 h1 {
     font-family: var(--font-heading);
     color: var(--clr-primary);
     line-height: 1.1; 
     letter-spacing: -0.5px; 
+    font-weight: 900; /* Heavier weight for impact */
 }
 
 
-/* Common Section Padding (for desktop/tablet)  */
+/* Common Section Padding (for desktop/tablet) */
 .section-padding {
     padding: 4rem 8%;
 }
@@ -138,14 +151,14 @@ h1 {
 }
 
 /* --------------------
-   3. Header & Navigation (Mobile-First) - REVERTED SHADOW
+   3. Header & Navigation (Mobile-First)
    -------------------- */
 .main-header {
     display: flex;
     justify-content: space-between; 
     align-items: center;
     padding: 1rem 5%;
-    background-color: var(--clr-white); /* Ensure header stays on top of content */
+    background-color: var(--clr-card-bg); 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     position: sticky;
     top: 0;
@@ -200,7 +213,7 @@ h1 {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: var(--clr-white);
+    background-color: var(--clr-card-bg);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .primary-navigation.visible ul {
@@ -211,7 +224,7 @@ h1 {
 
 
 /* --------------------
-   4. Hero Section (Home) 
+   4. Hero Section (Home) - COLOR 1 + GRADIENT
    -------------------- */
 .hero {
     display: flex;
@@ -222,14 +235,20 @@ h1 {
     padding: 5rem 10%; 
     min-height: 90vh; 
     gap: 2rem;
-    background-color: var(--clr-light); /* COLOR 1: Light Gray/Off-White */
+    /* Subtle Background Gradient */
+    background: linear-gradient(180deg, var(--clr-light) 0%, #fcfcfc 100%); 
+    background-color: var(--clr-light); /* Fallback */
+}
+body.dark-mode .hero {
+    background: linear-gradient(180deg, var(--clr-light) 0%, var(--clr-dark-light-end) 100%); 
+    background-color: var(--clr-light); 
 }
 .hero-content {
     max-width: 800px;
     width: 90%;
 }
 
-/* Adjust paragraph spacing in the Hero section */
+/* TYPOGRAPHY FIX: Adjust paragraph spacing in the Hero section */
 .hero-content p {
     line-height: 1.7; 
     word-spacing: 1px; 
@@ -239,7 +258,7 @@ h1 {
 }
 
 /* --------------------
-   4.5. About Me Section Styling (New Layout) - COLOR 2
+   4.5. About Me Section Styling (New Layout) - COLOR 2 + GRADIENT
    -------------------- */
 .about-container {
     display: flex;
@@ -252,10 +271,16 @@ h1 {
     margin-right: auto;
 }
 #about-me {
-    background-color: var(--clr-white); /* COLOR 2: White */
+    /* Subtle Background Gradient */
+    background: linear-gradient(180deg, var(--clr-white) 0%, #f8f8f8 100%);
+    background-color: var(--clr-white); /* Fallback */
+}
+body.dark-mode #about-me {
+    background: linear-gradient(180deg, var(--clr-white) 0%, #171717 100%);
+    background-color: var(--clr-white);
 }
 
-/* Style for the large sub-heading in the about section */
+/* NEW: Style for the large sub-heading in the about section */
 .about-title {
     color: var(--clr-primary);
     font-size: 1.5rem;
@@ -263,7 +288,7 @@ h1 {
     font-weight: 600;
 }
 
-/* Image Frame Styling - Circular Frame */
+/* Image Frame Styling - Circular Frame - OPTIMIZED */
 .about-image-frame {
     width: 100%;
     max-width: 220px; 
@@ -307,11 +332,18 @@ h1 {
 
 
 /* --------------------
-   5. Projects Section - COLOR 3
+   5. Projects Section - COLOR 3 + GRADIENT & ENHANCED SHADOWS
    -------------------- */
 #projects {
-    background-color: var(--clr-light); /* COLOR 3: Light Gray/Off-White */
+    /* Subtle Background Gradient */
+    background: linear-gradient(180deg, var(--clr-light) 0%, #fcfcfc 100%); 
+    background-color: var(--clr-light); /* Fallback */
 }
+body.dark-mode #projects {
+    background: linear-gradient(180deg, var(--clr-light) 0%, var(--clr-dark-light-end) 100%);
+    background-color: var(--clr-light);
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr; 
@@ -321,18 +353,26 @@ h1 {
 }
 
 .project-card {
-    background-color: var(--clr-card-bg); /* Cards remain white/dark-mode-card-color */
+    background-color: var(--clr-card-bg); 
     padding: 1.5rem; 
     border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
-    transition: transform 0.3s;
+    /* ENHANCEMENT 2: Soft initial shadow */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03); 
+    transition: transform 0.3s, box-shadow 0.3s; 
     display: flex; 
     flex-direction: column;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+    /* ENHANCEMENT 2: Stronger hover shadow */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); 
+}
+body.dark-mode .project-card {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
+}
+body.dark-mode .project-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); 
 }
 
 .project-thumbnail {
@@ -352,7 +392,7 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
-/* Project Tags Styling */
+/* NEW: Project Tags Styling */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -373,7 +413,7 @@ h1 {
 
 
 /* --------------------
-   6. Contact Section - COLOR 4
+   6. Contact Section - COLOR 4 + GRADIENT
    -------------------- */
 #contact {
     text-align: center;
@@ -381,8 +421,15 @@ h1 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    background-color: var(--clr-white); /* COLOR 4: White */
+    /* Subtle Background Gradient */
+    background: linear-gradient(180deg, var(--clr-white) 0%, #f8f8f8 100%);
+    background-color: var(--clr-white); /* Fallback */
 }
+body.dark-mode #contact {
+    background: linear-gradient(180deg, var(--clr-white) 0%, #171717 100%);
+    background-color: var(--clr-white);
+}
+
 /* Internal Spacing for Contact Section */
 #contact h2 {
     margin-bottom: 1.5rem; 
@@ -409,7 +456,6 @@ footer {
    8. Media Queries (Desktop/Tablet Layouts)
    -------------------- */
 @media (min-width: 768px) {
-    
     /* Header Controls */
     .nav-toggle {
         display: none;
@@ -421,14 +467,14 @@ footer {
         gap: 0.5rem; 
     }
     
-    /* About Me Section - Side-by-Side */
+    /* About Me Section - Side-by-Side - FINAL LAYOUT */
     .about-container {
         flex-direction: row; 
         align-items: flex-start; 
         gap: 4rem; 
     }
     
-    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right */
+    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right (Original) */
     .about-content {
         flex-grow: 1;
         text-align: left; 
