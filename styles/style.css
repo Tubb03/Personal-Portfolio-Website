@@ -11,14 +11,10 @@
     /* LIGHT MODE (Default) */
     --clr-primary: #005691;     /* Dark Blue */
     --clr-accent: #E30613;      /* Red */
-    
-    --clr-light: #f4f4f4;       /* Base Light Gray (kept for theme toggle & utility) */
+    --clr-light: #f4f4f4;       /* Off-White/Light Gray (Section 1/3/5 background) */
+    --clr-white: white;         /* Pure White (Section 2/4 background) */
     --clr-dark: #333;           
     --clr-card-bg: white;       
-    
-    /* NEW BRIGHT BACKGROUNDS */
-    --clr-bg-a: #fff9e0; /* Section 1/3/5: Soft Yellow/Cream */
-    --clr-bg-b: #e0f7fa; /* Section 2/4: Soft Cyan/Blue */
     
     --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-body: 'Arial', sans-serif;
@@ -28,19 +24,15 @@
 body.dark-mode {
     --clr-primary: #66CCFF;     
     --clr-accent: #FF5733;      
-    
-    --clr-light: #121212;       
+    --clr-light: #121212;       /* Dark background */
+    --clr-white: #1a1a1a;       /* Slightly lighter dark for contrast */
     --clr-dark: #E0E0E0;        
     --clr-card-bg: #1e1e1e;     
-    
-    /* NEW DARK MODE BACKGROUNDS (Still alternating, but dark) */
-    --clr-bg-a: #1a1a1a; 
-    --clr-bg-b: #232323; 
 }
 
 body.dark-mode {
     color: var(--clr-dark);
-    background-color: var(--clr-bg-a); /* Base background now starts with A */
+    background-color: var(--clr-light);
 }
 
 /* Apply dark mode variables to specific elements */
@@ -83,7 +75,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     color: var(--clr-dark);
-    /* Background set by the sections now */
+    background-color: var(--clr-light); /* Base background for the page */
 }
 
 a {
@@ -106,7 +98,7 @@ h1 {
 }
 
 
-/* Common Section Padding (for desktop/tablet) */
+/* Common Section Padding (for desktop/tablet) - UPDATED */
 .section-padding {
     padding: 4rem 8%;
 }
@@ -153,7 +145,7 @@ h1 {
     justify-content: space-between; 
     align-items: center;
     padding: 1rem 5%;
-    background-color: var(--clr-card-bg);
+    background-color: var(--clr-white); /* Ensure header stays on top of content */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     position: sticky;
     top: 0;
@@ -208,7 +200,7 @@ h1 {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: var(--clr-card-bg);
+    background-color: var(--clr-white);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .primary-navigation.visible ul {
@@ -219,7 +211,7 @@ h1 {
 
 
 /* --------------------
-   4. Hero Section (Home) - COLOR A
+   4. Hero Section (Home) - FINAL LAYOUT + COLOR 1
    -------------------- */
 .hero {
     display: flex;
@@ -230,14 +222,14 @@ h1 {
     padding: 5rem 10%; 
     min-height: 90vh; 
     gap: 2rem;
-    background-color: var(--clr-bg-a); /* COLOR A */
+    background-color: var(--clr-light); /* COLOR 1: Light Gray/Off-White */
 }
 .hero-content {
     max-width: 800px;
     width: 90%;
 }
 
-/* Adjust paragraph spacing in the Hero section */
+/* TYPOGRAPHY FIX: Adjust paragraph spacing in the Hero section */
 .hero-content p {
     line-height: 1.7; 
     word-spacing: 1px; 
@@ -247,7 +239,7 @@ h1 {
 }
 
 /* --------------------
-   4.5. About Me Section Styling - COLOR B
+   4.5. About Me Section Styling (New Layout) - COLOR 2
    -------------------- */
 .about-container {
     display: flex;
@@ -260,10 +252,10 @@ h1 {
     margin-right: auto;
 }
 #about-me {
-    background-color: var(--clr-bg-b); /* COLOR B */
+    background-color: var(--clr-white); /* COLOR 2: White */
 }
 
-/* Style for the large sub-heading in the about section */
+/* NEW: Style for the large sub-heading in the about section */
 .about-title {
     color: var(--clr-primary);
     font-size: 1.5rem;
@@ -271,7 +263,7 @@ h1 {
     font-weight: 600;
 }
 
-/* Image Frame Styling - Circular Frame */
+/* Image Frame Styling - Circular Frame - OPTIMIZED */
 .about-image-frame {
     width: 100%;
     max-width: 220px; 
@@ -293,7 +285,7 @@ h1 {
     order: 2; 
 }
 
-/* Skills Tag Styling */
+/* NEW: Skills Tag Styling */
 .about-skills {
     margin-top: 2rem;
     display: flex;
@@ -315,10 +307,10 @@ h1 {
 
 
 /* --------------------
-   5. Projects Section - COLOR A
+   5. Projects Section - COLOR 3
    -------------------- */
 #projects {
-    background-color: var(--clr-bg-a); /* COLOR A */
+    background-color: var(--clr-light); /* COLOR 3: Light Gray/Off-White */
 }
 .projects-grid {
     display: grid;
@@ -329,7 +321,7 @@ h1 {
 }
 
 .project-card {
-    background-color: var(--clr-card-bg); 
+    background-color: var(--clr-card-bg); /* Cards remain white/dark-mode-card-color */
     padding: 1.5rem; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
@@ -360,7 +352,7 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
-/* Project Tags Styling */
+/* NEW: Project Tags Styling */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -381,7 +373,7 @@ h1 {
 
 
 /* --------------------
-   6. Contact Section - COLOR B
+   6. Contact Section - COLOR 4
    -------------------- */
 #contact {
     text-align: center;
@@ -389,7 +381,7 @@ h1 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    background-color: var(--clr-bg-b); /* COLOR B */
+    background-color: var(--clr-white); /* COLOR 4: White */
 }
 /* Internal Spacing for Contact Section */
 #contact h2 {
@@ -417,6 +409,7 @@ footer {
    8. Media Queries (Desktop/Tablet Layouts)
    -------------------- */
 @media (min-width: 768px) {
+    /* ... (rest of media query styles unchanged) ... */
     
     /* Header Controls */
     .nav-toggle {
@@ -429,14 +422,14 @@ footer {
         gap: 0.5rem; 
     }
     
-    /* About Me Section - Side-by-Side */
+    /* About Me Section - Side-by-Side - FINAL LAYOUT */
     .about-container {
         flex-direction: row; 
         align-items: flex-start; 
         gap: 4rem; 
     }
     
-    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right */
+    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right (Original) */
     .about-content {
         flex-grow: 1;
         text-align: left; 
