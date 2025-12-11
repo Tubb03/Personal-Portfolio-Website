@@ -8,22 +8,24 @@
 }
 
 :root {
-    /* LIGHT MODE (Default)
-    --clr-primary: #005691;     /* Original Dark Blue */
-    --clr-accent: #E30613;      
-    --clr-light: #f4f4f4;       /* Original Off-White */
+    /* LIGHT MODE (Default) */
+    --clr-primary: #005691;     /* Dark Blue */
+    --clr-accent: #E30613;      /* Red */
+    --clr-light: #f4f4f4;       /* Off-White/Light Gray (Section 1/3/5 background) */
+    --clr-white: white;         /* Pure White (Section 2/4 background) */
     --clr-dark: #333;           
-    --clr-card-bg: white;       /* Original White Card */
+    --clr-card-bg: white;       
     
     --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-body: 'Arial', sans-serif;
 }
 
-/* DARK MODE */
+/* DARK MODE OVERRIDES */
 body.dark-mode {
     --clr-primary: #66CCFF;     
     --clr-accent: #FF5733;      
-    --clr-light: #121212;       
+    --clr-light: #121212;       /* Dark background */
+    --clr-white: #1a1a1a;       /* Slightly lighter dark for contrast */
     --clr-dark: #E0E0E0;        
     --clr-card-bg: #1e1e1e;     
 }
@@ -36,7 +38,6 @@ body.dark-mode {
 /* Apply dark mode variables to specific elements */
 body.dark-mode .main-header {
     background-color: var(--clr-card-bg);
-    /* Retaining dark mode shadow setting if it exists, otherwise letting it fall through */
     box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); 
 }
 body.dark-mode .logo a, 
@@ -45,8 +46,8 @@ body.dark-mode .primary-navigation a {
 }
 body.dark-mode .project-card,
 body.dark-mode #contact-form {
-    background-color: var(--clr-card-bg); /* Original dark card background */
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Original dark card shadow */
+    background-color: var(--clr-card-bg); 
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); 
 }
 body.dark-mode .project-card:hover {
     transform: translateY(-5px);
@@ -74,7 +75,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     color: var(--clr-dark);
-    background-color: var(--clr-light);
+    background-color: var(--clr-light); /* Base background for the page */
 }
 
 a {
@@ -92,12 +93,12 @@ h1, h2, h3 {
 h1 {
     font-family: var(--font-heading);
     color: var(--clr-primary);
-    line-height: 1.1; /* Increased line spacing */
+    line-height: 1.1; 
     letter-spacing: -0.5px; 
 }
 
 
-/* Common Section Padding (for desktop/tablet) */
+/* Common Section Padding (for desktop/tablet) - UPDATED */
 .section-padding {
     padding: 4rem 8%;
 }
@@ -137,15 +138,15 @@ h1 {
 }
 
 /* --------------------
-   3. Header & Navigation (Mobile-First)
+   3. Header & Navigation (Mobile-First) - REVERTED SHADOW
    -------------------- */
 .main-header {
     display: flex;
     justify-content: space-between; 
     align-items: center;
     padding: 1rem 5%;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--clr-white); /* Ensure header stays on top of content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -199,7 +200,7 @@ h1 {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: white;
+    background-color: var(--clr-white);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .primary-navigation.visible ul {
@@ -210,7 +211,7 @@ h1 {
 
 
 /* --------------------
-   4. Hero Section (Home)
+   4. Hero Section (Home) - FINAL LAYOUT + COLOR 1
    -------------------- */
 .hero {
     display: flex;
@@ -221,6 +222,7 @@ h1 {
     padding: 5rem 10%; 
     min-height: 90vh; 
     gap: 2rem;
+    background-color: var(--clr-light); /* COLOR 1: Light Gray/Off-White */
 }
 .hero-content {
     max-width: 800px;
@@ -232,12 +234,12 @@ h1 {
     line-height: 1.7; 
     word-spacing: 1px; 
     margin-top: 1.5rem; 
-    margin-bottom: 2.5rem; /* Added bottom margin for spacing to button */
+    margin-bottom: 2.5rem; 
     max-width: 650px; 
 }
 
 /* --------------------
-   4.5. About Me Section Styling (New Layout)
+   4.5. About Me Section Styling (New Layout) - COLOR 2
    -------------------- */
 .about-container {
     display: flex;
@@ -249,8 +251,11 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }
+#about-me {
+    background-color: var(--clr-white); /* COLOR 2: White */
+}
 
-/* Style for the large sub-heading in the about section */
+/* NEW: Style for the large sub-heading in the about section */
 .about-title {
     color: var(--clr-primary);
     font-size: 1.5rem;
@@ -266,7 +271,7 @@ h1 {
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid var(--clr-accent);
-    order: 1; /* Keep image on top on mobile */
+    order: 1; 
 }
 
 .about-image-frame .profile-photo {
@@ -277,7 +282,7 @@ h1 {
 
 .about-content {
     text-align: center; 
-    order: 2; /* Keep content below image on mobile */
+    order: 2; 
 }
 
 /* NEW: Skills Tag Styling */
@@ -285,13 +290,13 @@ h1 {
     margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center tags on mobile */
+    justify-content: center; 
     gap: 0.75rem;
 }
 .skill-tag {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: rgba(0, 86, 145, 0.1); /* Light background using primary color */
+    background-color: rgba(0, 86, 145, 0.1); 
     color: var(--clr-primary);
     border-radius: 5px;
     font-size: 0.9rem;
@@ -302,8 +307,11 @@ h1 {
 
 
 /* --------------------
-   5. Projects Section 
+   5. Projects Section - COLOR 3
    -------------------- */
+#projects {
+    background-color: var(--clr-light); /* COLOR 3: Light Gray/Off-White */
+}
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr; 
@@ -313,12 +321,11 @@ h1 {
 }
 
 .project-card {
-    background-color: var(--clr-card-bg); 
+    background-color: var(--clr-card-bg); /* Cards remain white/dark-mode-card-color */
     padding: 1.5rem; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
     transition: transform 0.3s;
-    /* Ensure flex items (tags) don't overflow the card */
     display: flex; 
     flex-direction: column;
 }
@@ -350,7 +357,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: auto; /* Pushes the tags to the bottom of the card */
+    margin-top: auto; 
     margin-bottom: 1rem;
 }
 /* Ensure the skill tag style works inside the project card, keeping the appearance consistent */
@@ -360,12 +367,35 @@ h1 {
 }
 
 .project-card .secondary-button {
-    margin-top: 1rem; /* Space between tags and button */
-    align-self: flex-start; /* Aligns the button to the left */
+    margin-top: 1rem; 
+    align-self: flex-start; 
 }
 
+
 /* --------------------
-   6. Footer
+   6. Contact Section - COLOR 4
+   -------------------- */
+#contact {
+    text-align: center;
+    padding: 5rem 10%; 
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--clr-white); /* COLOR 4: White */
+}
+/* Internal Spacing for Contact Section */
+#contact h2 {
+    margin-bottom: 1.5rem; 
+}
+
+#contact p {
+    margin-bottom: 2rem; 
+    line-height: 1.7; 
+}
+
+
+/* --------------------
+   7. Footer
    -------------------- */
 footer {
     text-align: center;
@@ -376,30 +406,11 @@ footer {
 }
 
 /* --------------------
-   7. Media Queries (Desktop/Tablet Layouts)
+   8. Media Queries (Desktop/Tablet Layouts)
    -------------------- */
-   
-/* Centering and spacing the Contact Section */
-#contact {
-    text-align: center;
-    padding: 5rem 10%; 
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Internal Spacing for Contact Section */
-#contact h2 {
-    margin-bottom: 1.5rem; /* Space below the heading */
-}
-
-#contact p {
-    margin-bottom: 2rem; /* Space between description and button */
-    line-height: 1.7; /* Ensures readability for the description */
-}
-
-
 @media (min-width: 768px) {
+    /* ... (rest of media query styles unchanged) ... */
+    
     /* Header Controls */
     .nav-toggle {
         display: none;
@@ -411,23 +422,23 @@ footer {
         gap: 0.5rem; 
     }
     
-    /* About Me Section - Side-by-Side */
+    /* About Me Section - Side-by-Side - FINAL LAYOUT */
     .about-container {
         flex-direction: row; 
         align-items: flex-start; 
-        gap: 4rem; /* Reverted gap */
+        gap: 4rem; 
     }
     
-    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right  */
+    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right (Original) */
     .about-content {
         flex-grow: 1;
         text-align: left; 
-        order: 1; /* Content remains second */
+        order: 1; 
     }
     .about-image-frame {
         flex-shrink: 0; 
         margin-right: 0; 
-        order: -1; /* Image moves to the left side (first) */
+        order: -1; 
     }
     
     /* Ensure skills align left on desktop */
@@ -443,7 +454,7 @@ footer {
     /* Projects Section - Three Columns Fix */
     .projects-grid {
         grid-template-columns: 1fr 1fr 1fr; 
-        gap: 2rem;
+        gap: 2rem; 
     }
     
     /* --------------------
