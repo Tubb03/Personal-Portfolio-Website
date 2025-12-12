@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ----------------------------------------------------
        FEATURE 2: Close Nav on Link Click (Mobile UX) 
        ---------------------------------------------------- */
-    // Since navigation links lead to sections on the same page, 
-    // close the menu after a link is clicked for better mobile UX.
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             // Check if the navigation menu is visible (i.e., on a small screen)
