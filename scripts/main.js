@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section[id]');
 
     const observerOptions = {
-        root: null, // Viewport is the root
+        root: null, 
         rootMargin: '0px',
         threshold: 0.5 // Trigger when 50% of the section is visible
     };
