@@ -10,8 +10,8 @@
     --clr-accent: #E30613;      /* Red */
     
     /* Alternating Section Backgrounds (Grey/White) */
-    --clr-light: #f4f4f4;       /* COLOR 1/3: Off-White/Light Gray */
-    --clr-white: white;         /* COLOR 2/4: Pure White */
+    --clr-light: #E8E8E8;       /* COLOR 1/3: Off-White/Light Gray */
+    --clr-white: #F9F9F9;         /* COLOR 2/4: Pure White */
     
     --clr-dark: #333;           
     --clr-card-bg: white;       
