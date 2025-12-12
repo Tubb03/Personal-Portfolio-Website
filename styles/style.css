@@ -1,4 +1,3 @@
-
 *, *::before, *::after {
     box-sizing: border-box; 
     margin: 0;
@@ -300,6 +299,31 @@ body.dark-mode #about-me {
     order: 2; 
 }
 
+/* --------------------
+   4.6. About Me Skill Tags Styling (FIXED)
+   -------------------- */
+.about-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem; /* Add spacing below the paragraph */
+    justify-content: center; /* Center on mobile/stacked view */
+}
+
+/* Applying the existing Project Tag style to the About Me skill tags */
+.about-skills .skill-tag {
+    /* These styles are taken directly from the project tags to ensure uniformity */
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background-color: rgba(0, 86, 145, 0.1); /* Light Blue Tint */
+    color: var(--clr-primary);
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 500; /* Matching project tags */
+    white-space: nowrap;
+    border: 1px solid rgba(0, 86, 145, 0.2);
+}
+
 
 /* --------------------
    5. Projects Section - COLOR 3 (LIGHT GRAY)
@@ -479,6 +503,11 @@ footer {
     .projects-grid {
         grid-template-columns: 1fr 1fr 1fr; 
         gap: 2rem; 
+    }
+
+    /* Adjust centering for desktop layout */
+    .about-skills {
+        justify-content: flex-start; /* Align left with the text on desktop */
     }
     
     /* --------------------
