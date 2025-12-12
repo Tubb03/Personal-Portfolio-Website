@@ -323,7 +323,7 @@ body.dark-mode #about-me {
     justify-content: center; 
 }
 
-/* PILL SHAPE TAGS */
+/* PILL SHAPE TAGS (Applied to both About and Project tags) */
 .about-skills .skill-tag, .project-card .skill-tag {
     display: inline-block;
     padding: 0.5rem 1rem; /* Increased padding */
