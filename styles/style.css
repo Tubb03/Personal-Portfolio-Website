@@ -9,16 +9,16 @@
     --clr-primary: #005691;     /* Dark Blue */
     --clr-accent: #E30613;      /* Red */
     
-    /* Alternating Section Backgrounds (Grey/White) */
-    --clr-light: #E8E8E8;       /* COLOR 1/3: Off-White/Light Gray */
-    --clr-white: #F9F9F9;         /* COLOR 2/4: Pure White */
+    /* Alternating Section Backgrounds (NEW GRAY PALETTE) */
+    --clr-light: #E8E8E8;       /* COLOR 1/3: Normal Light Gray */
+    --clr-white: #F9F9F9;         /* COLOR 2/4: Very Light Gray/Off-White */
     
     --clr-dark: #333;           
     --clr-card-bg: white;       
     
     /* Heading Font */
     --font-heading: 'Montserrat', sans-serif; 
-    --font-body: 'Arial', sans-serif;
+    --font-body: 'Inter', sans-serif; /* UPDATED FONT */
 }
 
 /* DARK MODE OVERRIDES */
@@ -92,13 +92,23 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
-/* Adjust H1 spacing */
+/* UPDATED H2 & H3: Added letter spacing for visual weight */
+h2 {
+    letter-spacing: 0.5px; 
+}
+h3 {
+    letter-spacing: 0.25px; 
+}
+
+/* Adjust H1 spacing and width for better reading */
 h1 {
     font-family: var(--font-heading);
     color: var(--clr-primary);
     line-height: 1.1; 
     letter-spacing: -0.5px; 
     font-weight: 900; 
+    max-width: 85%; /* Limit width to prevent overly long lines */
+    margin: 0 auto; /* Center the limited width */
 }
 
 
@@ -215,7 +225,7 @@ h1 {
 
 
 /* --------------------
-   4. Hero Section (Home) - COLOR 1 (LIGHT GRAY)
+   4. Hero Section (Home) - INCREASED PADDING & GRAY BACKGROUND
    -------------------- */
 .hero {
     display: flex;
@@ -223,11 +233,11 @@ h1 {
     align-items: center;
     justify-content: center; 
     text-align: center;
-    padding: 5rem 10%; 
-    min-height: 90vh; 
+    padding: 8rem 10%; /* INCREASED PADDING */
+    min-height: 95vh; /* SLIGHTLY INCREASED HEIGHT */
     gap: 2rem;
-    /* Subtle Background Gradient */
-    background: linear-gradient(180deg, var(--clr-light) 0%, #fcfcfc 100%); 
+    /* Subtle Background Gradient: Normal Gray to White */
+    background: linear-gradient(180deg, var(--clr-light) 0%, white 100%); 
     background-color: var(--clr-light);
 }
 body.dark-mode .hero {
@@ -248,7 +258,7 @@ body.dark-mode .hero {
 }
 
 /* --------------------
-   4.5. About Me Section Styling - COLOR 2 (WHITE)
+   4.5. About Me Section Styling - COLOR 2 (OFF-WHITE)
    -------------------- */
 .about-container {
     display: flex;
@@ -261,8 +271,8 @@ body.dark-mode .hero {
     margin-right: auto;
 }
 #about-me {
-    /* Subtle Background Gradient */
-    background: linear-gradient(180deg, var(--clr-white) 0%, #f8f8f8 100%);
+    /* Subtle Background Gradient: Off-White to White */
+    background: linear-gradient(180deg, var(--clr-white) 0%, white 100%);
     background-color: var(--clr-white);
 }
 body.dark-mode #about-me {
@@ -326,11 +336,11 @@ body.dark-mode #about-me {
 
 
 /* --------------------
-   5. Projects Section - COLOR 3 (LIGHT GRAY)
+   5. Projects Section - COLOR 3 (NORMAL LIGHT GRAY) & CARD POLISH
    -------------------- */
 #projects {
-    /* Subtle Background Gradient */
-    background: linear-gradient(180deg, var(--clr-light) 0%, #fcfcfc 100%); 
+    /* Subtle Background Gradient: Normal Gray to White */
+    background: linear-gradient(180deg, var(--clr-light) 0%, white 100%); 
     background-color: var(--clr-light);
 }
 body.dark-mode #projects {
@@ -350,8 +360,8 @@ body.dark-mode #projects {
     background-color: var(--clr-card-bg); 
     padding: 1.5rem; 
     border-radius: 8px; 
-    /* Soft initial shadow */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03); 
+    /* INCREASED SHADOW FOR SUBSTANCE */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08); 
     transition: transform 0.3s, box-shadow 0.3s; 
     display: flex; 
     flex-direction: column;
@@ -359,8 +369,8 @@ body.dark-mode #projects {
 
 .project-card:hover {
     transform: translateY(-5px);
-    /* Stronger hover shadow */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); 
+    /* STRONG HOVER SHADOW */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); 
 }
 body.dark-mode .project-card {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
@@ -413,11 +423,12 @@ body.dark-mode .project-card:hover {
 
 
 /* --------------------
-   6. Contact Section - COLOR 4 (WHITE)
+   6. Contact Section - COLOR 4 (OFF-WHITE)
    -------------------- */
 #contact {
     text-align: center;
-    background: linear-gradient(180deg, var(--clr-white) 0%, #f8f8f8 100%);
+    /* Subtle Background Gradient: Off-White to White */
+    background: linear-gradient(180deg, var(--clr-white) 0%, white 100%);
     background-color: var(--clr-white); 
 }
 body.dark-mode #contact {
