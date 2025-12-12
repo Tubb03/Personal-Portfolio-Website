@@ -5,31 +5,31 @@
 }
 
 :root {
-    /* LIGHT MODE (Default) */
-    --clr-primary: #005691;     /* Dark Blue */
-    --clr-accent: #E30613;      /* Red */
+    /* LIGHT MODE (Default) - NEW MODERN PALETTE */
+    --clr-primary: #1A1A1A;     /* Soft Black/Dark Gray (for text/headers) */
+    --clr-accent: #00C4CC;      /* Bright Teal (for buttons/highlights) */
     
-    /* Alternating Section Backgrounds (NEW GRAY PALETTE) */
-    --clr-light: #E8E8E8;       /* COLOR 1/3: Normal Light Gray */
-    --clr-white: #F9F9F9;         /* COLOR 2/4: Very Light Gray/Off-White */
+    /* Alternating Section Backgrounds */
+    --clr-light: #FAFAFA;       /* COLOR 1/3: Off-White/Lightest Gray */
+    --clr-white: white;         /* COLOR 2/4: Pure White */
     
     --clr-dark: #333;           
     --clr-card-bg: white;       
     
     /* Heading Font */
-    --font-heading: 'Montserrat', sans-serif; 
-    --font-body: 'Inter', sans-serif; /* UPDATED FONT */
+    --font-heading: 'Bebas Neue', sans-serif; /* NEW: Bold, wide font */
+    --font-body: 'Inter', sans-serif; 
 }
 
 /* DARK MODE OVERRIDES */
 body.dark-mode {
-    --clr-primary: #66CCFF;     
-    --clr-accent: #FF5733;      
+    --clr-primary: #E0E0E0;     /* Light Gray for text */
+    --clr-accent: #00C4CC;      /* Bright Teal (consistent) */
     
     /* Dark Mode Alternating Background Colors */
-    --clr-light: #121212;       /* COLOR 1/3: Base Dark */
-    --clr-white: #1a1a1a;       /* COLOR 2/4: Slightly lighter dark for contrast */
-    --clr-dark-light-end: #141414; /* Used for dark mode gradient end point */
+    --clr-light: #121212;       /* Base Dark */
+    --clr-white: #1a1a1a;       /* Slightly lighter dark for contrast */
+    --clr-dark-light-end: #141414; 
     
     --clr-dark: #E0E0E0;        
     --clr-card-bg: #1e1e1e;     
@@ -92,23 +92,28 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
-/* UPDATED H2 & H3: Added letter spacing for visual weight */
+/* FONT AND SPACING CHANGES FOR AGGRESSIVE/MODERN LOOK */
 h2 {
-    letter-spacing: 0.5px; 
+    letter-spacing: 2px; /* INCREASED SPACING */
+    font-size: 2.5rem;
+    text-align: center;
 }
 h3 {
-    letter-spacing: 0.25px; 
+    letter-spacing: 1px; /* INCREASED SPACING */
 }
 
-/* Adjust H1 spacing and width for better reading */
+/* Adjust H1 spacing, size, and alignment */
 h1 {
     font-family: var(--font-heading);
     color: var(--clr-primary);
-    line-height: 1.1; 
-    letter-spacing: -0.5px; 
+    line-height: 1; /* Tighter line height for Bebas Neue */
+    letter-spacing: 4px; /* WIDE SPACING */
     font-weight: 900; 
-    max-width: 85%; /* Limit width to prevent overly long lines */
-    margin: 0 auto; /* Center the limited width */
+    font-size: 3rem; /* LARGE ON MOBILE */
+    text-align: left; /* LEFT ALIGNED */
+    max-width: 100%; 
+    margin: 0; 
+    margin-bottom: 1rem;
 }
 
 
@@ -128,15 +133,16 @@ h1 {
     transition: background-color 0.3s, transform 0.2s;
     border: none;
     cursor: pointer;
+    text-transform: uppercase; /* Add modern touch */
 }
 
 .primary-button {
     background-color: var(--clr-accent);
-    color: var(--clr-light);
+    color: var(--clr-primary); /* Text color changed to primary dark color for contrast */
 }
 
 .primary-button:hover, .primary-button:focus {
-    background-color: #b80510;
+    background-color: #008f91; /* Darker Teal */
     transform: translateY(-2px);
 }
 
@@ -148,11 +154,11 @@ h1 {
 
 .secondary-button:hover, .secondary-button:focus {
     background-color: var(--clr-primary);
-    color: var(--clr-light);
+    color: var(--clr-white);
 }
 
 /* --------------------
-   3. Header & Navigation
+   3. Header & Navigation (No major changes here)
    -------------------- */
 .main-header {
     display: flex;
@@ -169,7 +175,7 @@ h1 {
 .logo a {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--clr-dark);
+    color: var(--clr-primary);
 }
 
 .header-controls {
@@ -188,7 +194,7 @@ h1 {
     display: block;
     padding: 0.5rem 1rem;
     font-weight: 500;
-    color: var(--clr-dark);
+    color: var(--clr-primary);
     transition: color 0.3s;
 }
 
@@ -197,7 +203,7 @@ h1 {
     color: var(--clr-accent);
 }
 
-/* Mobile Navigation Toggle */
+/* Mobile Navigation Toggle (UNCHANGED) */
 .primary-navigation {
     display: none;
 }
@@ -225,40 +231,40 @@ h1 {
 
 
 /* --------------------
-   4. Hero Section (Home) - INCREASED PADDING & GRAY BACKGROUND
+   4. Hero Section (Home) - DYNAMIC LEFT ALIGNMENT
    -------------------- */
 .hero {
     display: flex;
     flex-direction: column; 
-    align-items: center;
+    /* REMOVED CENTER ALIGNMENT */
     justify-content: center; 
-    text-align: center;
-    padding: 8rem 10%; /* INCREASED PADDING */
-    min-height: 95vh; /* SLIGHTLY INCREASED HEIGHT */
+    text-align: left; /* LEFT ALIGNED */
+    padding: 8rem 10%; 
+    min-height: 95vh; 
     gap: 2rem;
-    /* Subtle Background Gradient: Normal Gray to White */
-    background: linear-gradient(180deg, var(--clr-light) 0%, white 100%); 
-    background-color: var(--clr-light);
+    
+    background: var(--clr-light); /* Off-White background */
 }
 body.dark-mode .hero {
-    background: linear-gradient(180deg, var(--clr-light) 0%, var(--clr-dark-light-end) 100%); 
-    background-color: var(--clr-light); 
+    background: var(--clr-light); 
 }
 .hero-content {
     max-width: 800px;
     width: 90%;
+    margin: 0; /* Align left */
 }
 
 .hero-content p {
     line-height: 1.7; 
     word-spacing: 1px; 
-    margin-top: 1.5rem; 
+    margin-top: 1rem; /* Reduced margin */
     margin-bottom: 2.5rem; 
     max-width: 650px; 
+    color: var(--clr-primary);
 }
 
 /* --------------------
-   4.5. About Me Section Styling - COLOR 2 (OFF-WHITE)
+   4.5. About Me Section Styling - COLOR 2 (PURE WHITE)
    -------------------- */
 .about-container {
     display: flex;
@@ -271,12 +277,9 @@ body.dark-mode .hero {
     margin-right: auto;
 }
 #about-me {
-    /* Subtle Background Gradient: Off-White to White */
-    background: linear-gradient(180deg, var(--clr-white) 0%, white 100%);
-    background-color: var(--clr-white);
+    background-color: var(--clr-white); /* Pure White background */
 }
 body.dark-mode #about-me {
-    background: linear-gradient(180deg, var(--clr-white) 0%, #171717 100%);
     background-color: var(--clr-white);
 }
 
@@ -287,12 +290,12 @@ body.dark-mode #about-me {
     font-weight: 600;
 }
 
-/* Image Frame Styling - Circular Frame */
+/* Image Frame Styling - Slightly softer corners */
 .about-image-frame {
     width: 100%;
-    max-width: 220px; 
+    max-width: 250px; /* Slightly larger image */
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
+    border-radius: 15px; /* Softer, squared corners */
     overflow: hidden;
     border: 5px solid var(--clr-accent);
     order: 1; 
@@ -310,41 +313,37 @@ body.dark-mode #about-me {
 }
 
 /* --------------------
-   4.6. About Me Skill Tags Styling (FIXED)
+   4.6. About Me Skill Tags Styling (Pill-Shaped)
    -------------------- */
 .about-skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.5rem; /* Add spacing below the paragraph */
-    justify-content: center; /* Center on mobile/stacked view */
+    gap: 0.75rem; /* Increased gap */
+    margin-top: 1.5rem; 
+    justify-content: center; 
 }
 
-/* Applying the existing Project Tag style to the About Me skill tags */
-.about-skills .skill-tag {
-    /* These styles are taken directly from the project tags to ensure uniformity */
+/* PILL SHAPE TAGS */
+.about-skills .skill-tag, .project-card .skill-tag {
     display: inline-block;
-    padding: 0.4rem 0.8rem;
-    background-color: rgba(0, 86, 145, 0.1); /* Light Blue Tint */
+    padding: 0.5rem 1rem; /* Increased padding */
+    background-color: rgba(0, 196, 204, 0.1); /* Light Teal Tint */
     color: var(--clr-primary);
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: 500; /* Matching project tags */
+    border-radius: 30px; /* PILL SHAPE */
+    font-size: 0.9rem; /* Slightly larger text */
+    font-weight: 600; 
     white-space: nowrap;
-    border: 1px solid rgba(0, 86, 145, 0.2);
+    border: 1px solid rgba(0, 196, 204, 0.3);
 }
 
 
 /* --------------------
-   5. Projects Section - COLOR 3 (NORMAL LIGHT GRAY) & CARD POLISH
+   5. Projects Section - COLOR 3 (OFF-WHITE)
    -------------------- */
 #projects {
-    /* Subtle Background Gradient: Normal Gray to White */
-    background: linear-gradient(180deg, var(--clr-light) 0%, white 100%); 
     background-color: var(--clr-light);
 }
 body.dark-mode #projects {
-    background: linear-gradient(180deg, var(--clr-light) 0%, var(--clr-dark-light-end) 100%);
     background-color: var(--clr-light);
 }
 
@@ -359,9 +358,9 @@ body.dark-mode #projects {
 .project-card {
     background-color: var(--clr-card-bg); 
     padding: 1.5rem; 
-    border-radius: 8px; 
-    /* INCREASED SHADOW FOR SUBSTANCE */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08); 
+    border-radius: 12px; /* Slightly more rounded corners */
+    /* NEW: SOFTER SHADOW */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); 
     transition: transform 0.3s, box-shadow 0.3s; 
     display: flex; 
     flex-direction: column;
@@ -369,14 +368,14 @@ body.dark-mode #projects {
 
 .project-card:hover {
     transform: translateY(-5px);
-    /* STRONG HOVER SHADOW */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); 
+    /* NEW: ACCENTED HOVER SHADOW */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 4px var(--clr-accent); 
 }
 body.dark-mode .project-card {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); 
 }
 body.dark-mode .project-card:hover {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 0 4px var(--clr-accent); 
 }
 
 .project-thumbnail {
@@ -384,10 +383,10 @@ body.dark-mode .project-card:hover {
     height: auto;
     max-height: 200px; 
     object-fit: cover; 
-    border-radius: 5px; 
+    border-radius: 8px; /* Slightly more rounded corners */
     margin-bottom: 1rem;
     display: block;
-    border: 1px solid var(--clr-light); 
+    border: 1px solid rgba(0, 0, 0, 0.05); 
 }
 
 .project-card h3 {
@@ -396,24 +395,13 @@ body.dark-mode .project-card:hover {
     margin-bottom: 0.5rem;
 }
 
-/* Project Tags Styling */
+/* Project Tags Styling (Uses pill-shape from 4.6) */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: auto; 
     margin-bottom: 1rem;
-}
-.project-card .skill-tag {
-    display: inline-block;
-    padding: 0.4rem 0.8rem;
-    background-color: rgba(0, 86, 145, 0.1); 
-    color: var(--clr-primary);
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    white-space: nowrap;
-    border: 1px solid rgba(0, 86, 145, 0.2);
 }
 
 .project-card .secondary-button {
@@ -423,16 +411,13 @@ body.dark-mode .project-card:hover {
 
 
 /* --------------------
-   6. Contact Section - COLOR 4 (OFF-WHITE)
+   6. Contact Section - COLOR 4 (PURE WHITE)
    -------------------- */
 #contact {
     text-align: center;
-    /* Subtle Background Gradient: Off-White to White */
-    background: linear-gradient(180deg, var(--clr-white) 0%, white 100%);
     background-color: var(--clr-white); 
 }
 body.dark-mode #contact {
-    background: linear-gradient(180deg, var(--clr-white) 0%, #171717 100%);
     background-color: var(--clr-white);
 }
 
@@ -490,10 +475,10 @@ footer {
     .about-container {
         flex-direction: row; 
         align-items: flex-start; 
-        gap: 4rem; 
+        gap: 6rem; /* Increased gap */
     }
     
-    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right */
+    /* DESKTOP LAYOUT ORDER: Image on Left, Content on Right (UNCHANGED) */
     .about-content {
         flex-grow: 1;
         text-align: left; 
@@ -505,9 +490,17 @@ footer {
         order: -1; 
     }
     
+    /* HERO: Adjust large H1 for desktop */
+    h1 {
+        font-size: 5rem;
+        line-height: 0.9;
+        margin-bottom: 1.5rem;
+    }
+    
     .hero-content {
         max-width: 700px; 
         width: 80%; 
+        /* Left aligned by default */
     }
 
     /* Projects Section - Three Columns Fix */
@@ -518,18 +511,18 @@ footer {
 
     /* Adjust centering for desktop layout */
     .about-skills {
-        justify-content: flex-start; /* Align left with the text on desktop */
+        justify-content: flex-start; 
     }
     
     /* --------------------
-       9. Back to Top Button Styling 
+       9. Back to Top Button Styling (UNCHANGED)
        -------------------- */
     #back-to-top {
         position: fixed;
         bottom: 20px;
         right: 20px;
         background-color: var(--clr-accent);
-        color: var(--clr-light);
+        color: var(--clr-primary); /* Changed text color to primary for visibility on teal background */
         border: none;
         border-radius: 50%;
         width: 50px;
@@ -551,11 +544,11 @@ footer {
     }
 
     #back-to-top:hover {
-        background-color: #b80510;
+        background-color: #008f91;
     }
     
     /* --------------------
-       10. Scroll Animation Styles 
+       10. Scroll Animation Styles (UNCHANGED)
        -------------------- */
     .animate-on-scroll {
         opacity: 0;
